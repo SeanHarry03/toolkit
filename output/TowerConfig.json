@@ -2140,7 +2140,7 @@
     "maxLevel": 13,
     "itemName": "青蛙王子",
     "upgradeGold": 50,
-    "removeGold": 12.5,
+    "removeGold": 12,
     "goldPerSec": 2,
     "itemDescription": "1.随机一次性产生3~5个音符\n2.每个音符获得一定的金币，几个音符对应着几倍金币"
   },
@@ -2199,7 +2199,7 @@
     "upgradeGold": 1600,
     "upgradeEnergy": 50,
     "removeGold": 400,
-    "removeEnergy": 12.5,
+    "removeEnergy": 12,
     "goldPerSec": 64,
     "itemDescription": "1.随机一次性产生3~5个音符\n2.每个音符获得一定的金币，几个音符对应着几倍金币"
   },
