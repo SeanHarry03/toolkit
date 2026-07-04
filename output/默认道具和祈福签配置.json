@@ -1,0 +1,424 @@
+﻿{
+  "601": {
+    "501": {
+      "id": "501",
+      "probability": 10
+    },
+    "10401": {
+      "id": "10401",
+      "probability": 5
+    },
+    "10501": {
+      "id": "10501",
+      "probability": 5
+    },
+    "30201": {
+      "id": "30201",
+      "probability": 10
+    },
+    "30202": {
+      "id": "30202",
+      "probability": 10
+    },
+    "20401": {
+      "id": "20401",
+      "probability": 10
+    },
+    "20402": {
+      "id": 20402,
+      "probability": 5
+    },
+    "40601": {
+      "id": "40601",
+      "probability": 3
+    },
+    "41701": {
+      "id": "41701",
+      "probability": 3
+    },
+    "41901": {
+      "id": "41901",
+      "probability": 3
+    },
+    "42401": {
+      "id": "42401",
+      "probability": 3
+    },
+    "20601": {
+      "id": "20601",
+      "probability": 5
+    },
+    "20702": {
+      "id": "20702",
+      "probability": 5
+    },
+    "20901": {
+      "id": "20901",
+      "probability": 5
+    },
+    "21102": {
+      "id": "21102",
+      "probability": 5
+    },
+    "40101": {
+      "id": "40101",
+      "probability": 5
+    },
+    "40401": {
+      "id": "40401",
+      "probability": 3
+    },
+    "40501": {
+      "id": "40501",
+      "probability": 3
+    },
+    "20301": {
+      "id": "20301",
+      "probability": 10
+    },
+    "42201": {
+      "id": "42201",
+      "probability": 2
+    },
+    "40201": {
+      "id": "40201",
+      "probability": 2
+    },
+    "40301": {
+      "id": "40301",
+      "probability": 2
+    },
+    "40701": {
+      "id": "40701",
+      "probability": 2
+    },
+    "40801": {
+      "id": "40801",
+      "probability": 2
+    },
+    "40901": {
+      "id": "40901",
+      "probability": 2
+    },
+    "41001": {
+      "id": "41001",
+      "probability": 3
+    },
+    "41002": {
+      "id": "41002",
+      "probability": 3
+    },
+    "41801": {
+      "id": "41801",
+      "probability": 1
+    },
+    "41802": {
+      "id": "41802",
+      "probability": 1
+    },
+    "42601": {
+      "id": "42601",
+      "probability": 2
+    },
+    "42801": {
+      "id": "42801",
+      "probability": 1
+    }
+  },
+  "701": {
+    "501": {
+      "id": "501",
+      "probability": 10
+    },
+    "30202": {
+      "id": 30202,
+      "probability": 5
+    },
+    "30203": {
+      "id": "30203",
+      "probability": 5
+    },
+    "20301": {
+      "id": "20301",
+      "probability": 20
+    },
+    "20401": {
+      "id": "20401",
+      "probability": 10
+    },
+    "20402": {
+      "id": 20402,
+      "probability": 8
+    },
+    "20403": {
+      "id": 20403,
+      "probability": 5
+    },
+    "20404": {
+      "id": 20404,
+      "probability": 3
+    },
+    "20405": {
+      "id": 20405,
+      "probability": 2
+    },
+    "20406": {
+      "id": 20406,
+      "probability": 1
+    },
+    "40101": {
+      "id": "40101",
+      "probability": 10
+    },
+    "40401": {
+      "id": "40401",
+      "probability": 5
+    },
+    "40501": {
+      "id": "40501",
+      "probability": 5
+    },
+    "42201": {
+      "id": "42201",
+      "probability": 5
+    },
+    "40201": {
+      "id": "40201",
+      "probability": 5
+    },
+    "40301": {
+      "id": "40301",
+      "probability": 5
+    },
+    "40701": {
+      "id": "40701",
+      "probability": 5
+    },
+    "40801": {
+      "id": "40801",
+      "probability": 5
+    },
+    "40901": {
+      "id": "40901",
+      "probability": 3
+    },
+    "41001": {
+      "id": "41001",
+      "probability": 5
+    },
+    "41002": {
+      "id": "41002",
+      "probability": 5
+    },
+    "41801": {
+      "id": "41801",
+      "probability": 3
+    },
+    "41802": {
+      "id": "41802",
+      "probability": 3
+    },
+    "42601": {
+      "id": "42601",
+      "probability": 10
+    },
+    "42801": {
+      "id": "42801",
+      "probability": 5
+    },
+    "20501": {
+      "id": "20501",
+      "probability": 3
+    },
+    "20502": {
+      "id": "20502",
+      "probability": 2
+    },
+    "10102": {
+      "id": 10102,
+      "probability": 1
+    },
+    "10103": {
+      "id": 10103,
+      "probability": 1
+    },
+    "10104": {
+      "id": 10104,
+      "probability": 1
+    },
+    "20101": {
+      "id": 20101,
+      "probability": 1
+    },
+    "20102": {
+      "id": 20102,
+      "probability": 1
+    }
+  },
+  "801": {
+    "20401": {
+      "id": "20401",
+      "probability": 5
+    },
+    "20402": {
+      "id": 20402,
+      "probability": 10
+    },
+    "20403": {
+      "id": 20403,
+      "probability": 5
+    },
+    "20404": {
+      "id": 20404,
+      "probability": 5
+    },
+    "20405": {
+      "id": 20405,
+      "probability": 2
+    },
+    "20406": {
+      "id": 20406,
+      "probability": 2
+    },
+    "20301": {
+      "id": "20301",
+      "probability": 10
+    },
+    "20302": {
+      "id": "20302",
+      "probability": 5
+    },
+    "20303": {
+      "id": "20303",
+      "probability": 5
+    },
+    "20304": {
+      "id": "20304",
+      "probability": 2
+    },
+    "20305": {
+      "id": "20305",
+      "probability": 2
+    },
+    "20306": {
+      "id": "20306",
+      "probability": 1
+    },
+    "20501": {
+      "id": "20501",
+      "probability": 5
+    },
+    "20502": {
+      "id": "20502",
+      "probability": 5
+    },
+    "20503": {
+      "id": 20503,
+      "probability": 3
+    },
+    "40101": {
+      "id": "40101",
+      "probability": 5
+    },
+    "40401": {
+      "id": "40401",
+      "probability": 3
+    },
+    "40501": {
+      "id": "40501",
+      "probability": 3
+    },
+    "42201": {
+      "id": "42201",
+      "probability": 10
+    },
+    "40201": {
+      "id": "40201",
+      "probability": 10
+    },
+    "40301": {
+      "id": "40301",
+      "probability": 10
+    },
+    "40701": {
+      "id": "40701",
+      "probability": 5
+    },
+    "40801": {
+      "id": "40801",
+      "probability": 5
+    },
+    "40901": {
+      "id": "40901",
+      "probability": 5
+    },
+    "41001": {
+      "id": "41001",
+      "probability": 10
+    },
+    "41002": {
+      "id": "41002",
+      "probability": 5
+    },
+    "41801": {
+      "id": "41801",
+      "probability": 5
+    },
+    "41802": {
+      "id": "41802",
+      "probability": 5
+    },
+    "42601": {
+      "id": "42601",
+      "probability": 10
+    },
+    "42801": {
+      "id": "42801",
+      "probability": 10
+    },
+    "10105": {
+      "id": 10105,
+      "probability": 1
+    },
+    "10102": {
+      "id": 10102,
+      "probability": 3
+    },
+    "10103": {
+      "id": 10103,
+      "probability": 5
+    },
+    "10104": {
+      "id": 10104,
+      "probability": 2
+    },
+    "20101": {
+      "id": 20101,
+      "probability": 5
+    },
+    "20102": {
+      "id": 20102,
+      "probability": 3
+    },
+    "20103": {
+      "id": 20103,
+      "probability": 2
+    },
+    "20104": {
+      "id": 20104,
+      "probability": 1
+    },
+    "20105": {
+      "id": 20105,
+      "probability": 1
+    },
+    "30203": {
+      "id": "30203",
+      "probability": 3
+    },
+    "30204": {
+      "id": "30204",
+      "probability": 3
+    }
+  }
+}

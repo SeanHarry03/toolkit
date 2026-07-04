@@ -1,0 +1,3880 @@
+﻿{
+  "100101": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 1,
+    "levelUpExp": 350,
+    "expPerSec": 5,
+    "hp": 20900,
+    "attack": 20,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 100101
+  },
+  "100102": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 2,
+    "levelUpExp": 805,
+    "expPerSec": 5.75,
+    "hp": 26400,
+    "attack": 23,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110101
+    ],
+    "spiritId": 100102
+  },
+  "100103": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 3,
+    "levelUpExp": 2587.5,
+    "expPerSec": 11.5,
+    "hp": 38500,
+    "attack": 46,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110102,
+      110701
+    ],
+    "spiritId": 100103
+  },
+  "100104": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 4,
+    "levelUpExp": 6525,
+    "expPerSec": 21.75,
+    "hp": 69300,
+    "attack": 87,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110103,
+      110705,
+      110301
+    ],
+    "spiritId": 100104
+  },
+  "100105": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 5,
+    "levelUpExp": 13243.75,
+    "expPerSec": 40.75,
+    "hp": 143000,
+    "attack": 163,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110104,
+      110709,
+      110306
+    ],
+    "spiritId": 100105
+  },
+  "100106": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 6,
+    "levelUpExp": 26600,
+    "expPerSec": 76,
+    "hp": 330000,
+    "attack": 304,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110702,
+      110306
+    ],
+    "spiritId": 100106
+  },
+  "100107": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 7,
+    "levelUpExp": 63100,
+    "expPerSec": 157.75,
+    "hp": 770000,
+    "attack": 631,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110706,
+      110302
+    ],
+    "spiritId": 100107
+  },
+  "100108": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 8,
+    "levelUpExp": 136743.75,
+    "expPerSec": 321.75,
+    "hp": 1650000,
+    "attack": 1287,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110710,
+      110302
+    ],
+    "spiritId": 100108
+  },
+  "100109": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 9,
+    "levelUpExp": 296100,
+    "expPerSec": 658,
+    "hp": 3520000,
+    "attack": 2632,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110714,
+      110302
+    ],
+    "spiritId": 100109
+  },
+  "100110": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 10,
+    "levelUpExp": 625218.75,
+    "expPerSec": 1316.25,
+    "hp": 7150000,
+    "attack": 5265,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110707,
+      110307
+    ],
+    "spiritId": 100110
+  },
+  "100111": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 11,
+    "levelUpExp": 1316250,
+    "expPerSec": 2632.5,
+    "hp": 16500000,
+    "attack": 10530,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110711,
+      110307
+    ],
+    "spiritId": 100111
+  },
+  "100112": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 12,
+    "levelUpExp": 2895750,
+    "expPerSec": 5265,
+    "hp": 35200000,
+    "attack": 21060,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110715,
+      110307
+    ],
+    "spiritId": 100112
+  },
+  "100113": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 13,
+    "levelUpExp": 6318000,
+    "expPerSec": 10530,
+    "hp": 72600000,
+    "attack": 42120,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110716,
+      110308
+    ],
+    "spiritId": 100113
+  },
+  "100114": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 14,
+    "levelUpExp": 13689000,
+    "expPerSec": 21060,
+    "hp": 154000000,
+    "attack": 84240,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110719,
+      110308
+    ],
+    "spiritId": 100114
+  },
+  "100115": {
+    "spiritType": 1001,
+    "spiritName": "面具巡行者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 330000000,
+    "attack": 187200,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110106,
+      110720,
+      110308
+    ],
+    "spiritId": 100115
+  },
+  "100201": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 1,
+    "levelUpExp": 350,
+    "expPerSec": 5,
+    "hp": 19000,
+    "attack": 20,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 100201
+  },
+  "100202": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 2,
+    "levelUpExp": 910,
+    "expPerSec": 6.5,
+    "hp": 24000,
+    "attack": 26,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110110,
+      110201
+    ],
+    "spiritId": 100202
+  },
+  "100203": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 3,
+    "levelUpExp": 2925,
+    "expPerSec": 13,
+    "hp": 35000,
+    "attack": 52,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110111,
+      110202
+    ],
+    "spiritId": 100203
+  },
+  "100204": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 4,
+    "levelUpExp": 7500,
+    "expPerSec": 25,
+    "hp": 63000,
+    "attack": 100,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110112,
+      110203,
+      110302
+    ],
+    "spiritId": 100204
+  },
+  "100205": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 5,
+    "levelUpExp": 14787.5,
+    "expPerSec": 45.5,
+    "hp": 130000,
+    "attack": 182,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110113,
+      110204,
+      110303
+    ],
+    "spiritId": 100205
+  },
+  "100206": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 6,
+    "levelUpExp": 29575,
+    "expPerSec": 84.5,
+    "hp": 300000,
+    "attack": 338,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110114,
+      110205,
+      110303
+    ],
+    "spiritId": 100206
+  },
+  "100207": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 7,
+    "levelUpExp": 70200,
+    "expPerSec": 175.5,
+    "hp": 700000,
+    "attack": 702,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110206,
+      110304
+    ],
+    "spiritId": 100207
+  },
+  "100208": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 8,
+    "levelUpExp": 151937.5,
+    "expPerSec": 357.5,
+    "hp": 1500000,
+    "attack": 1430,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110207,
+      110304
+    ],
+    "spiritId": 100208
+  },
+  "100209": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 9,
+    "levelUpExp": 329062.5,
+    "expPerSec": 731.25,
+    "hp": 3200000,
+    "attack": 2925,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110208,
+      110307
+    ],
+    "spiritId": 100209
+  },
+  "100210": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 10,
+    "levelUpExp": 694687.5,
+    "expPerSec": 1462.5,
+    "hp": 6500000,
+    "attack": 5850,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110209,
+      110307
+    ],
+    "spiritId": 100210
+  },
+  "100211": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 11,
+    "levelUpExp": 1462500,
+    "expPerSec": 2925,
+    "hp": 15000000,
+    "attack": 11700,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110210,
+      110308
+    ],
+    "spiritId": 100211
+  },
+  "100212": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 12,
+    "levelUpExp": 3217500,
+    "expPerSec": 5850,
+    "hp": 32000000,
+    "attack": 23400,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110211,
+      110308
+    ],
+    "spiritId": 100212
+  },
+  "100213": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 13,
+    "levelUpExp": 7020000,
+    "expPerSec": 11700,
+    "hp": 66000000,
+    "attack": 46800,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110212,
+      110309
+    ],
+    "spiritId": 100213
+  },
+  "100214": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 14,
+    "levelUpExp": 15210000,
+    "expPerSec": 23400,
+    "hp": 140000000,
+    "attack": 93600,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110213,
+      110309
+    ],
+    "spiritId": 100214
+  },
+  "100215": {
+    "spiritType": 1002,
+    "spiritName": "变异医生",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 300000000,
+    "attack": 208000,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110117,
+      110214,
+      110310
+    ],
+    "spiritId": 100215
+  },
+  "100301": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 1,
+    "levelUpExp": 300,
+    "expPerSec": 5,
+    "hp": 17100,
+    "attack": 20,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 100301
+  },
+  "100302": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 2,
+    "levelUpExp": 812.5,
+    "expPerSec": 6.25,
+    "hp": 21600,
+    "attack": 25,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110101,
+      110501
+    ],
+    "spiritId": 100302
+  },
+  "100303": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 3,
+    "levelUpExp": 2415,
+    "expPerSec": 11.5,
+    "hp": 31500,
+    "attack": 46,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110102,
+      110501
+    ],
+    "spiritId": 100303
+  },
+  "100304": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 4,
+    "levelUpExp": 6626.25,
+    "expPerSec": 23.25,
+    "hp": 56700,
+    "attack": 93,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110103,
+      110501
+    ],
+    "spiritId": 100304
+  },
+  "100305": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 5,
+    "levelUpExp": 13330,
+    "expPerSec": 43,
+    "hp": 117000,
+    "attack": 172,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110104,
+      110503
+    ],
+    "spiritId": 100305
+  },
+  "100306": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 6,
+    "levelUpExp": 26800,
+    "expPerSec": 80,
+    "hp": 270000,
+    "attack": 320,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110105,
+      110503
+    ],
+    "spiritId": 100306
+  },
+  "100307": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 7,
+    "levelUpExp": 64102.5,
+    "expPerSec": 166.5,
+    "hp": 630000,
+    "attack": 666,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110503
+    ],
+    "spiritId": 100307
+  },
+  "100308": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 8,
+    "levelUpExp": 139195,
+    "expPerSec": 339.5,
+    "hp": 1350000,
+    "attack": 1358,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110503,
+      110302
+    ],
+    "spiritId": 100308
+  },
+  "100309": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 9,
+    "levelUpExp": 302107.5,
+    "expPerSec": 694.5,
+    "hp": 2880000,
+    "attack": 2778,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110503,
+      110302
+    ],
+    "spiritId": 100309
+  },
+  "100310": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 10,
+    "levelUpExp": 639055,
+    "expPerSec": 1389.25,
+    "hp": 5850000,
+    "attack": 5557,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110503,
+      110302
+    ],
+    "spiritId": 100310
+  },
+  "100311": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 11,
+    "levelUpExp": 1347693.75,
+    "expPerSec": 2778.75,
+    "hp": 13500000,
+    "attack": 11115,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110505,
+      110307
+    ],
+    "spiritId": 100311
+  },
+  "100312": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 12,
+    "levelUpExp": 2945475,
+    "expPerSec": 5557.5,
+    "hp": 28800000,
+    "attack": 22230,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110505,
+      110307
+    ],
+    "spiritId": 100312
+  },
+  "100313": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 13,
+    "levelUpExp": 6391125,
+    "expPerSec": 11115,
+    "hp": 59400000,
+    "attack": 44460,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110505,
+      110308
+    ],
+    "spiritId": 100313
+  },
+  "100314": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 14,
+    "levelUpExp": 13893750,
+    "expPerSec": 22230,
+    "hp": 126000000,
+    "attack": 88920,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110509,
+      110308
+    ],
+    "spiritId": 100314
+  },
+  "100315": {
+    "spiritType": 1003,
+    "spiritName": "嗜血女王",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 270000000,
+    "attack": 197600,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110108,
+      110509,
+      110308
+    ],
+    "spiritId": 100315
+  },
+  "110101": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 1,
+    "levelUpExp": 325,
+    "expPerSec": 5,
+    "hp": 20900,
+    "attack": 20,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 110101
+  },
+  "110102": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 2,
+    "levelUpExp": 1170,
+    "expPerSec": 9,
+    "hp": 26400,
+    "attack": 36,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106
+    ],
+    "spiritId": 110102
+  },
+  "110103": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 3,
+    "levelUpExp": 3690,
+    "expPerSec": 18,
+    "hp": 38500,
+    "attack": 72,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110701
+    ],
+    "spiritId": 110103
+  },
+  "110104": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 4,
+    "levelUpExp": 9072,
+    "expPerSec": 33,
+    "hp": 69300,
+    "attack": 135,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110705,
+      110301
+    ],
+    "spiritId": 110104
+  },
+  "110105": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 5,
+    "levelUpExp": 18585,
+    "expPerSec": 63,
+    "hp": 143000,
+    "attack": 252,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110709,
+      110306
+    ],
+    "spiritId": 110105
+  },
+  "110106": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 6,
+    "levelUpExp": 36855,
+    "expPerSec": 117,
+    "hp": 330000,
+    "attack": 468,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110702,
+      110306
+    ],
+    "spiritId": 110106
+  },
+  "110107": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 7,
+    "levelUpExp": 85050,
+    "expPerSec": 243,
+    "hp": 770000,
+    "attack": 972,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110706,
+      110302
+    ],
+    "spiritId": 110107
+  },
+  "110108": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 8,
+    "levelUpExp": 193050,
+    "expPerSec": 495,
+    "hp": 1650000,
+    "attack": 1980,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110710,
+      110302
+    ],
+    "spiritId": 110108
+  },
+  "110109": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 9,
+    "levelUpExp": 425208,
+    "expPerSec": 1012,
+    "hp": 3520000,
+    "attack": 4050,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110302
+    ],
+    "spiritId": 110109
+  },
+  "110110": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 10,
+    "levelUpExp": 891000,
+    "expPerSec": 2025,
+    "hp": 7150000,
+    "attack": 8100,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110707,
+      110307
+    ],
+    "spiritId": 110110
+  },
+  "110111": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 11,
+    "levelUpExp": 1903500,
+    "expPerSec": 4050,
+    "hp": 16500000,
+    "attack": 16200,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110711,
+      110307
+    ],
+    "spiritId": 110111
+  },
+  "110112": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 12,
+    "levelUpExp": 4050000,
+    "expPerSec": 8100,
+    "hp": 35200000,
+    "attack": 32400,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110715,
+      110307
+    ],
+    "spiritId": 110112
+  },
+  "110113": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 13,
+    "levelUpExp": 8910000,
+    "expPerSec": 16200,
+    "hp": 72600000,
+    "attack": 64800,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110716,
+      110308
+    ],
+    "spiritId": 110113
+  },
+  "110114": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 14,
+    "levelUpExp": 19440000,
+    "expPerSec": 32400,
+    "hp": 154000000,
+    "attack": 129600,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110719,
+      110308
+    ],
+    "spiritId": 110114
+  },
+  "110115": {
+    "spiritType": 1101,
+    "spiritName": "面具巡行者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 330000000,
+    "attack": 288000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110109,
+      110720,
+      110308
+    ],
+    "spiritId": 110115
+  },
+  "110201": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 1,
+    "levelUpExp": 325,
+    "expPerSec": 5,
+    "hp": 19000,
+    "attack": 20,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 110201
+  },
+  "110202": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 2,
+    "levelUpExp": 1300,
+    "expPerSec": 10,
+    "hp": 24000,
+    "attack": 40,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110201
+    ],
+    "spiritId": 110202
+  },
+  "110203": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 3,
+    "levelUpExp": 4100,
+    "expPerSec": 20,
+    "hp": 35000,
+    "attack": 80,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110202
+    ],
+    "spiritId": 110203
+  },
+  "110204": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 4,
+    "levelUpExp": 10098,
+    "expPerSec": 37,
+    "hp": 63000,
+    "attack": 150,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110203,
+      110302
+    ],
+    "spiritId": 110204
+  },
+  "110205": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 5,
+    "levelUpExp": 20650,
+    "expPerSec": 70,
+    "hp": 130000,
+    "attack": 280,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110204,
+      110303
+    ],
+    "spiritId": 110205
+  },
+  "110206": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 6,
+    "levelUpExp": 40950,
+    "expPerSec": 130,
+    "hp": 300000,
+    "attack": 520,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110115,
+      110205,
+      110303
+    ],
+    "spiritId": 110206
+  },
+  "110207": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 7,
+    "levelUpExp": 94500,
+    "expPerSec": 270,
+    "hp": 700000,
+    "attack": 1080,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110206,
+      110304
+    ],
+    "spiritId": 110207
+  },
+  "110208": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 8,
+    "levelUpExp": 214500,
+    "expPerSec": 550,
+    "hp": 1500000,
+    "attack": 2200,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110207,
+      110304
+    ],
+    "spiritId": 110208
+  },
+  "110209": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 9,
+    "levelUpExp": 472500,
+    "expPerSec": 1125,
+    "hp": 3200000,
+    "attack": 4500,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110208,
+      110307
+    ],
+    "spiritId": 110209
+  },
+  "110210": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 10,
+    "levelUpExp": 990000,
+    "expPerSec": 2250,
+    "hp": 6500000,
+    "attack": 9000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110209,
+      110307
+    ],
+    "spiritId": 110210
+  },
+  "110211": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 11,
+    "levelUpExp": 2115000,
+    "expPerSec": 4500,
+    "hp": 15000000,
+    "attack": 18000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110210,
+      110308
+    ],
+    "spiritId": 110211
+  },
+  "110212": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 12,
+    "levelUpExp": 4500000,
+    "expPerSec": 9000,
+    "hp": 32000000,
+    "attack": 36000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110211,
+      110308
+    ],
+    "spiritId": 110212
+  },
+  "110213": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 13,
+    "levelUpExp": 9900000,
+    "expPerSec": 18000,
+    "hp": 66000000,
+    "attack": 72000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110212,
+      110309
+    ],
+    "spiritId": 110213
+  },
+  "110214": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 14,
+    "levelUpExp": 21600000,
+    "expPerSec": 36000,
+    "hp": 140000000,
+    "attack": 144000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110118,
+      110213,
+      110309
+    ],
+    "spiritId": 110214
+  },
+  "110215": {
+    "spiritType": 1102,
+    "spiritName": "变异医生",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 300000000,
+    "attack": 320000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110118,
+      110214,
+      110310
+    ],
+    "spiritId": 110215
+  },
+  "110301": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 1,
+    "levelUpExp": 300,
+    "expPerSec": 5,
+    "hp": 17100,
+    "attack": 20,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 110301
+  },
+  "110302": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 2,
+    "levelUpExp": 1080,
+    "expPerSec": 9,
+    "hp": 21600,
+    "attack": 36,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110501
+    ],
+    "spiritId": 110302
+  },
+  "110303": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 3,
+    "levelUpExp": 3420,
+    "expPerSec": 18,
+    "hp": 31500,
+    "attack": 72,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110503
+    ],
+    "spiritId": 110303
+  },
+  "110304": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 4,
+    "levelUpExp": 8750,
+    "expPerSec": 33,
+    "hp": 56700,
+    "attack": 142,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110505
+    ],
+    "spiritId": 110304
+  },
+  "110305": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 5,
+    "levelUpExp": 18260,
+    "expPerSec": 66,
+    "hp": 117000,
+    "attack": 266,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 110305
+  },
+  "110306": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 6,
+    "levelUpExp": 36403,
+    "expPerSec": 123,
+    "hp": 270000,
+    "attack": 494,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 110306
+  },
+  "110307": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 7,
+    "levelUpExp": 84612,
+    "expPerSec": 256,
+    "hp": 630000,
+    "attack": 1026,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110506,
+      110302
+    ],
+    "spiritId": 110307
+  },
+  "110308": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 8,
+    "levelUpExp": 193288,
+    "expPerSec": 522,
+    "hp": 1350000,
+    "attack": 2090,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110507,
+      110302
+    ],
+    "spiritId": 110308
+  },
+  "110309": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 9,
+    "levelUpExp": 422960,
+    "expPerSec": 1012,
+    "hp": 2880000,
+    "attack": 4275,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110507,
+      110302
+    ],
+    "spiritId": 110309
+  },
+  "110310": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 10,
+    "levelUpExp": 897708,
+    "expPerSec": 2137,
+    "hp": 5850000,
+    "attack": 8550,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110507,
+      110302
+    ],
+    "spiritId": 110310
+  },
+  "110311": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 11,
+    "levelUpExp": 1923750,
+    "expPerSec": 4275,
+    "hp": 13500000,
+    "attack": 17100,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110507,
+      110307
+    ],
+    "spiritId": 110311
+  },
+  "110312": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 12,
+    "levelUpExp": 4104000,
+    "expPerSec": 8550,
+    "hp": 28800000,
+    "attack": 34200,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110507,
+      110307
+    ],
+    "spiritId": 110312
+  },
+  "110313": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 13,
+    "levelUpExp": 9063000,
+    "expPerSec": 17100,
+    "hp": 59400000,
+    "attack": 68400,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110514,
+      110308
+    ],
+    "spiritId": 110313
+  },
+  "110314": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 14,
+    "levelUpExp": 19836000,
+    "expPerSec": 34200,
+    "hp": 126000000,
+    "attack": 136800,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110514,
+      110308
+    ],
+    "spiritId": 110314
+  },
+  "110315": {
+    "spiritType": 1103,
+    "spiritName": "嗜血女王",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 270000000,
+    "attack": 304000,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110119,
+      110517,
+      110308
+    ],
+    "spiritId": 110315
+  },
+  "120101": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 1,
+    "levelUpExp": 390,
+    "expPerSec": 6.5,
+    "hp": 27170,
+    "attack": 26,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 120101
+  },
+  "120102": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 2,
+    "levelUpExp": 1345.5,
+    "expPerSec": 11.7,
+    "hp": 34320,
+    "attack": 46.8,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110702
+    ],
+    "spiritId": 120102
+  },
+  "120103": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 3,
+    "levelUpExp": 4446,
+    "expPerSec": 23.4,
+    "hp": 50050,
+    "attack": 93.6,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110702,
+      110302
+    ],
+    "spiritId": 120103
+  },
+  "120104": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 4,
+    "levelUpExp": 10749.375,
+    "expPerSec": 43.875,
+    "hp": 90090,
+    "attack": 175.5,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110702,
+      110301
+    ],
+    "spiritId": 120104
+  },
+  "120105": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 5,
+    "levelUpExp": 21703.5,
+    "expPerSec": 81.9,
+    "hp": 185900,
+    "attack": 327.6,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110702,
+      110306
+    ],
+    "spiritId": 120105
+  },
+  "120106": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 6,
+    "levelUpExp": 44109,
+    "expPerSec": 152.1,
+    "hp": 429000,
+    "attack": 608.4,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110710,
+      110306
+    ],
+    "spiritId": 120106
+  },
+  "120107": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 7,
+    "levelUpExp": 97929,
+    "expPerSec": 315.9,
+    "hp": 1001000,
+    "attack": 1263.6,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110710,
+      110302
+    ],
+    "spiritId": 120107
+  },
+  "120108": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 8,
+    "levelUpExp": 222007.5,
+    "expPerSec": 643.5,
+    "hp": 2145000,
+    "attack": 2574,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110302
+    ],
+    "spiritId": 120108
+  },
+  "120109": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 9,
+    "levelUpExp": 487012.5,
+    "expPerSec": 1316.25,
+    "hp": 4576000,
+    "attack": 5265,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110302
+    ],
+    "spiritId": 120109
+  },
+  "120110": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 10,
+    "levelUpExp": 1026675,
+    "expPerSec": 2632.5,
+    "hp": 9295000,
+    "attack": 10530,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110714,
+      110307
+    ],
+    "spiritId": 120110
+  },
+  "120111": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 11,
+    "levelUpExp": 2211300,
+    "expPerSec": 5265,
+    "hp": 21450000,
+    "attack": 21060,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110718,
+      110307
+    ],
+    "spiritId": 120111
+  },
+  "120112": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 12,
+    "levelUpExp": 4738500,
+    "expPerSec": 10530,
+    "hp": 45760000,
+    "attack": 42120,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110718,
+      110307
+    ],
+    "spiritId": 120112
+  },
+  "120113": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 13,
+    "levelUpExp": 10530000,
+    "expPerSec": 21060,
+    "hp": 94380000,
+    "attack": 84240,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110718,
+      110308
+    ],
+    "spiritId": 120113
+  },
+  "120114": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 14,
+    "levelUpExp": 23166000,
+    "expPerSec": 42120,
+    "hp": 200200000,
+    "attack": 168480,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110719,
+      110308
+    ],
+    "spiritId": 120114
+  },
+  "120115": {
+    "spiritType": 1201,
+    "spiritName": "面具巡行者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 429000000,
+    "attack": 374400,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110109,
+      110720,
+      110308
+    ],
+    "spiritId": 120115
+  },
+  "120201": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 1,
+    "levelUpExp": 390,
+    "expPerSec": 6.5,
+    "hp": 24700,
+    "attack": 26,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 120201
+  },
+  "120202": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 2,
+    "levelUpExp": 1495,
+    "expPerSec": 13,
+    "hp": 31200,
+    "attack": 52,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110110,
+      110202
+    ],
+    "spiritId": 120202
+  },
+  "120203": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 3,
+    "levelUpExp": 4940,
+    "expPerSec": 26,
+    "hp": 45500,
+    "attack": 104,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110203,
+      110302
+    ],
+    "spiritId": 120203
+  },
+  "120204": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 4,
+    "levelUpExp": 11943.75,
+    "expPerSec": 48.75,
+    "hp": 81900,
+    "attack": 195,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110204,
+      110302
+    ],
+    "spiritId": 120204
+  },
+  "120205": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 5,
+    "levelUpExp": 24115,
+    "expPerSec": 91,
+    "hp": 169000,
+    "attack": 364,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110205,
+      110303
+    ],
+    "spiritId": 120205
+  },
+  "120206": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 6,
+    "levelUpExp": 49010,
+    "expPerSec": 169,
+    "hp": 390000,
+    "attack": 676,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110206,
+      110303
+    ],
+    "spiritId": 120206
+  },
+  "120207": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 7,
+    "levelUpExp": 108810,
+    "expPerSec": 351,
+    "hp": 910000,
+    "attack": 1404,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110207,
+      110304
+    ],
+    "spiritId": 120207
+  },
+  "120208": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 8,
+    "levelUpExp": 246675,
+    "expPerSec": 715,
+    "hp": 1950000,
+    "attack": 2860,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110208,
+      110304
+    ],
+    "spiritId": 120208
+  },
+  "120209": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 9,
+    "levelUpExp": 541125,
+    "expPerSec": 1462.5,
+    "hp": 4160000,
+    "attack": 5850,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110209,
+      110307
+    ],
+    "spiritId": 120209
+  },
+  "120210": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 10,
+    "levelUpExp": 1140750,
+    "expPerSec": 2925,
+    "hp": 8450000,
+    "attack": 11700,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110210,
+      110307
+    ],
+    "spiritId": 120210
+  },
+  "120211": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 11,
+    "levelUpExp": 2457000,
+    "expPerSec": 5850,
+    "hp": 19500000,
+    "attack": 23400,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110211,
+      110308
+    ],
+    "spiritId": 120211
+  },
+  "120212": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 12,
+    "levelUpExp": 5265000,
+    "expPerSec": 11700,
+    "hp": 41600000,
+    "attack": 46800,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110118,
+      110212,
+      110308
+    ],
+    "spiritId": 120212
+  },
+  "120213": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 13,
+    "levelUpExp": 11700000,
+    "expPerSec": 23400,
+    "hp": 85800000,
+    "attack": 93600,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110118,
+      110213,
+      110309
+    ],
+    "spiritId": 120213
+  },
+  "120214": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 14,
+    "levelUpExp": 25740000,
+    "expPerSec": 46800,
+    "hp": 182000000,
+    "attack": 187200,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110118,
+      110214,
+      110309
+    ],
+    "spiritId": 120214
+  },
+  "120215": {
+    "spiritType": 1202,
+    "spiritName": "变异医生",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 390000000,
+    "attack": 416000,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110119,
+      110215,
+      110310
+    ],
+    "spiritId": 120215
+  },
+  "120301": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 1,
+    "levelUpExp": 357.5,
+    "expPerSec": 6.5,
+    "hp": 22230,
+    "attack": 26,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 120301
+  },
+  "120302": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 2,
+    "levelUpExp": 1228.5,
+    "expPerSec": 11.7,
+    "hp": 28080,
+    "attack": 46.8,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506
+    ],
+    "spiritId": 120302
+  },
+  "120303": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 3,
+    "levelUpExp": 4095,
+    "expPerSec": 23.4,
+    "hp": 40950,
+    "attack": 93.6,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 120303
+  },
+  "120304": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 4,
+    "levelUpExp": 10614.5,
+    "expPerSec": 46.15,
+    "hp": 73710,
+    "attack": 184.6,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 120304
+  },
+  "120305": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 5,
+    "levelUpExp": 21612.5,
+    "expPerSec": 86.45,
+    "hp": 152100,
+    "attack": 345.8,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 120305
+  },
+  "120306": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 6,
+    "levelUpExp": 43348.5,
+    "expPerSec": 160.55,
+    "hp": 351000,
+    "attack": 642.2,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110506,
+      110302
+    ],
+    "spiritId": 120306
+  },
+  "120307": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 7,
+    "levelUpExp": 96700.5,
+    "expPerSec": 333.45,
+    "hp": 819000,
+    "attack": 1333.8,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110507,
+      110302
+    ],
+    "spiritId": 120307
+  },
+  "120308": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 8,
+    "levelUpExp": 220756.25,
+    "expPerSec": 679.25,
+    "hp": 1755000,
+    "attack": 2717,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110507,
+      110302
+    ],
+    "spiritId": 120308
+  },
+  "120309": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 9,
+    "levelUpExp": 486281.25,
+    "expPerSec": 1389.375,
+    "hp": 3744000,
+    "attack": 5557.5,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110507,
+      110302
+    ],
+    "spiritId": 120309
+  },
+  "120310": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 10,
+    "levelUpExp": 1028137.5,
+    "expPerSec": 2778.75,
+    "hp": 7605000,
+    "attack": 11115,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110508,
+      110302
+    ],
+    "spiritId": 120310
+  },
+  "120311": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 11,
+    "levelUpExp": 2223000,
+    "expPerSec": 5557.5,
+    "hp": 17550000,
+    "attack": 22230,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110508,
+      110307
+    ],
+    "spiritId": 120311
+  },
+  "120312": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 12,
+    "levelUpExp": 4779450,
+    "expPerSec": 11115,
+    "hp": 37440000,
+    "attack": 44460,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110508,
+      110307
+    ],
+    "spiritId": 120312
+  },
+  "120313": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 13,
+    "levelUpExp": 10559250,
+    "expPerSec": 22230,
+    "hp": 77220000,
+    "attack": 88920,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110517,
+      110308
+    ],
+    "spiritId": 120313
+  },
+  "120314": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 14,
+    "levelUpExp": 23341500,
+    "expPerSec": 44460,
+    "hp": 163800000,
+    "attack": 177840,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110517,
+      110308
+    ],
+    "spiritId": 120314
+  },
+  "120315": {
+    "spiritType": 1203,
+    "spiritName": "嗜血女王",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 351000000,
+    "attack": 395200,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110119,
+      110517,
+      110308
+    ],
+    "spiritId": 120315
+  },
+  "130101": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 1,
+    "levelUpExp": 500.5,
+    "expPerSec": 9.1,
+    "hp": 38038,
+    "attack": 36.4,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 130101
+  },
+  "130102": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 2,
+    "levelUpExp": 1638,
+    "expPerSec": 16.38,
+    "hp": 48048,
+    "attack": 65.52,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110714,
+      110302
+    ],
+    "spiritId": 130102
+  },
+  "130103": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 3,
+    "levelUpExp": 5733,
+    "expPerSec": 32.76,
+    "hp": 70070,
+    "attack": 131.04,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110714,
+      110302
+    ],
+    "spiritId": 130103
+  },
+  "130104": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 4,
+    "levelUpExp": 13513.5,
+    "expPerSec": 61.425,
+    "hp": 126126,
+    "attack": 245.7,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110714,
+      110302
+    ],
+    "spiritId": 130104
+  },
+  "130105": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 5,
+    "levelUpExp": 26945.1,
+    "expPerSec": 114.66,
+    "hp": 260260,
+    "attack": 458.64,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110306
+    ],
+    "spiritId": 130105
+  },
+  "130106": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 6,
+    "levelUpExp": 54299.7,
+    "expPerSec": 212.94,
+    "hp": 600600,
+    "attack": 851.76,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110306
+    ],
+    "spiritId": 130106
+  },
+  "130107": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 7,
+    "levelUpExp": 119410.2,
+    "expPerSec": 442.26,
+    "hp": 1401400,
+    "attack": 1769.04,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110714,
+      110302
+    ],
+    "spiritId": 130107
+  },
+  "130108": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 8,
+    "levelUpExp": 274774.5,
+    "expPerSec": 900.9,
+    "hp": 3003000,
+    "attack": 3603.6,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110715,
+      110302
+    ],
+    "spiritId": 130108
+  },
+  "130109": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 9,
+    "levelUpExp": 589680,
+    "expPerSec": 1842.75,
+    "hp": 6406400,
+    "attack": 7371,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110715,
+      110302
+    ],
+    "spiritId": 130109
+  },
+  "130110": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 10,
+    "levelUpExp": 1234642.5,
+    "expPerSec": 3685.5,
+    "hp": 13013000,
+    "attack": 14742,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110715,
+      110307
+    ],
+    "spiritId": 130110
+  },
+  "130111": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 11,
+    "levelUpExp": 2764125,
+    "expPerSec": 7371,
+    "hp": 30030000,
+    "attack": 29484,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110719,
+      110307
+    ],
+    "spiritId": 130111
+  },
+  "130112": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 12,
+    "levelUpExp": 5970510,
+    "expPerSec": 14742,
+    "hp": 64064000,
+    "attack": 58968,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110719,
+      110307
+    ],
+    "spiritId": 130112
+  },
+  "130113": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 13,
+    "levelUpExp": 13267800,
+    "expPerSec": 29484,
+    "hp": 132132000,
+    "attack": 117936,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110719,
+      110308
+    ],
+    "spiritId": 130113
+  },
+  "130114": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 14,
+    "levelUpExp": 29484000,
+    "expPerSec": 58968,
+    "hp": 280280000,
+    "attack": 235872,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110720,
+      110308
+    ],
+    "spiritId": 130114
+  },
+  "130115": {
+    "spiritType": 1301,
+    "spiritName": "面具巡行者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 600600000,
+    "attack": 524160,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110109,
+      110720,
+      110308
+    ],
+    "spiritId": 130115
+  },
+  "130201": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 1,
+    "levelUpExp": 500.5,
+    "expPerSec": 9.1,
+    "hp": 34580,
+    "attack": 36.4,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 130201
+  },
+  "130202": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 2,
+    "levelUpExp": 1820,
+    "expPerSec": 18.2,
+    "hp": 43680,
+    "attack": 72.8,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110203,
+      110302
+    ],
+    "spiritId": 130202
+  },
+  "130203": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 3,
+    "levelUpExp": 6370,
+    "expPerSec": 36.4,
+    "hp": 63700,
+    "attack": 145.6,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110204,
+      110302
+    ],
+    "spiritId": 130203
+  },
+  "130204": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 4,
+    "levelUpExp": 15015,
+    "expPerSec": 68.25,
+    "hp": 114660,
+    "attack": 273,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110205,
+      110302
+    ],
+    "spiritId": 130204
+  },
+  "130205": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 5,
+    "levelUpExp": 29939,
+    "expPerSec": 127.4,
+    "hp": 236600,
+    "attack": 509.6,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110116,
+      110206,
+      110303
+    ],
+    "spiritId": 130205
+  },
+  "130206": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 6,
+    "levelUpExp": 60333,
+    "expPerSec": 236.6,
+    "hp": 546000,
+    "attack": 946.4,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110207,
+      110303
+    ],
+    "spiritId": 130206
+  },
+  "130207": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 7,
+    "levelUpExp": 132678,
+    "expPerSec": 491.4,
+    "hp": 1274000,
+    "attack": 1965.6,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110208,
+      110304
+    ],
+    "spiritId": 130207
+  },
+  "130208": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 8,
+    "levelUpExp": 305305,
+    "expPerSec": 1001,
+    "hp": 2730000,
+    "attack": 4004,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110117,
+      110209,
+      110304
+    ],
+    "spiritId": 130208
+  },
+  "130209": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 9,
+    "levelUpExp": 655200,
+    "expPerSec": 2047.5,
+    "hp": 5824000,
+    "attack": 8190,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110118,
+      110210,
+      110307
+    ],
+    "spiritId": 130209
+  },
+  "130210": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 10,
+    "levelUpExp": 1371825,
+    "expPerSec": 4095,
+    "hp": 11830000,
+    "attack": 16380,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110211,
+      110307
+    ],
+    "spiritId": 130210
+  },
+  "130211": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 11,
+    "levelUpExp": 3071250,
+    "expPerSec": 8190,
+    "hp": 27300000,
+    "attack": 32760,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110120,
+      110212,
+      110308
+    ],
+    "spiritId": 130211
+  },
+  "130212": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 12,
+    "levelUpExp": 6633900,
+    "expPerSec": 16380,
+    "hp": 58240000,
+    "attack": 65520,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110121,
+      110213,
+      110308
+    ],
+    "spiritId": 130212
+  },
+  "130213": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 13,
+    "levelUpExp": 14742000,
+    "expPerSec": 32760,
+    "hp": 120120000,
+    "attack": 131040,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110122,
+      110214,
+      110309
+    ],
+    "spiritId": 130213
+  },
+  "130214": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 14,
+    "levelUpExp": 32760000,
+    "expPerSec": 65520,
+    "hp": 254800000,
+    "attack": 262080,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110123,
+      110215,
+      110309
+    ],
+    "spiritId": 130214
+  },
+  "130215": {
+    "spiritType": 1302,
+    "spiritName": "变异医生",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 546000000,
+    "attack": 582400,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110124,
+      110215,
+      110310
+    ],
+    "spiritId": 130215
+  },
+  "130301": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 1,
+    "levelUpExp": 455,
+    "expPerSec": 9.1,
+    "hp": 31122,
+    "attack": 36.4,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "spiritId": 130301
+  },
+  "130302": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 2,
+    "levelUpExp": 1556.1,
+    "expPerSec": 16.38,
+    "hp": 39312,
+    "attack": 65.52,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110510,
+      110302
+    ],
+    "spiritId": 130302
+  },
+  "130303": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 3,
+    "levelUpExp": 5405.4,
+    "expPerSec": 32.76,
+    "hp": 57330,
+    "attack": 131.04,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110510,
+      110302
+    ],
+    "spiritId": 130303
+  },
+  "130304": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 4,
+    "levelUpExp": 13245.05,
+    "expPerSec": 64.61,
+    "hp": 103194,
+    "attack": 258.44,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110512,
+      110302
+    ],
+    "spiritId": 130304
+  },
+  "130305": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 5,
+    "levelUpExp": 26021.45,
+    "expPerSec": 121.03,
+    "hp": 212940,
+    "attack": 484.12,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110512,
+      110302
+    ],
+    "spiritId": 130305
+  },
+  "130306": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 6,
+    "levelUpExp": 51697.1,
+    "expPerSec": 224.77,
+    "hp": 491400,
+    "attack": 899.08,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110106,
+      110514,
+      110303
+    ],
+    "spiritId": 130306
+  },
+  "130307": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 7,
+    "levelUpExp": 116707.5,
+    "expPerSec": 466.83,
+    "hp": 1146600,
+    "attack": 1867.32,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110514,
+      110303
+    ],
+    "spiritId": 130307
+  },
+  "130308": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 8,
+    "levelUpExp": 261511.25,
+    "expPerSec": 950.95,
+    "hp": 2457000,
+    "attack": 3803.8,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110107,
+      110516,
+      110303
+    ],
+    "spiritId": 130308
+  },
+  "130309": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 9,
+    "levelUpExp": 573811.875,
+    "expPerSec": 1945.125,
+    "hp": 5241600,
+    "attack": 7780.5,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110516,
+      110303
+    ],
+    "spiritId": 130309
+  },
+  "130310": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 10,
+    "levelUpExp": 1225428.75,
+    "expPerSec": 3890.25,
+    "hp": 10647000,
+    "attack": 15561,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110108,
+      110517,
+      110303
+    ],
+    "spiritId": 130310
+  },
+  "130311": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 11,
+    "levelUpExp": 2762077.5,
+    "expPerSec": 7780.5,
+    "hp": 24570000,
+    "attack": 31122,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110517,
+      110307
+    ],
+    "spiritId": 130311
+  },
+  "130312": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 12,
+    "levelUpExp": 5990985,
+    "expPerSec": 15561,
+    "hp": 52416000,
+    "attack": 62244,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110109,
+      110518,
+      110307
+    ],
+    "spiritId": 130312
+  },
+  "130313": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 13,
+    "levelUpExp": 13382460,
+    "expPerSec": 31122,
+    "hp": 108108000,
+    "attack": 124488,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110519,
+      110308
+    ],
+    "spiritId": 130313
+  },
+  "130314": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 14,
+    "levelUpExp": 30188340,
+    "expPerSec": 62244,
+    "hp": 229320000,
+    "attack": 248976,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": 100,
+    "skillList": [
+      110119,
+      110520,
+      110308
+    ],
+    "spiritId": 130314
+  },
+  "130315": {
+    "spiritType": 1303,
+    "spiritName": "嗜血女王",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 491400000,
+    "attack": 553280,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "damageToExpRate": -1,
+    "skillList": [
+      110119,
+      110521,
+      110308
+    ],
+    "spiritId": 130315
+  },
+  "600101": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 1,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 20000,
+    "attack": 20,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 600101
+  },
+  "600102": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 2,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 40000,
+    "attack": 40,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 600102
+  },
+  "600103": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 3,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 80000,
+    "attack": 80,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 600103
+  },
+  "600104": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 4,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 160000,
+    "attack": 160,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "spiritId": 600104
+  },
+  "600105": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 5,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 320000,
+    "attack": 320,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "spiritId": 600105
+  },
+  "600106": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 6,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 640000,
+    "attack": 640,
+    "moveSpeed": 700,
+    "attackSpeed": 100,
+    "spiritId": 600106
+  },
+  "600107": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 7,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 1280000,
+    "attack": 1280,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "spiritId": 600107
+  },
+  "600108": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 8,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 2560000,
+    "attack": 2560,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "spiritId": 600108
+  },
+  "600109": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 9,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 5120000,
+    "attack": 5120,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "spiritId": 600109
+  },
+  "600110": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 10,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 10240000,
+    "attack": 10240,
+    "moveSpeed": 750,
+    "attackSpeed": 100,
+    "spiritId": 600110
+  },
+  "600111": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 11,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 20480000,
+    "attack": 20480,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "spiritId": 600111
+  },
+  "600112": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 12,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 40960000,
+    "attack": 40960,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "spiritId": 600112
+  },
+  "600113": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 13,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 81920000,
+    "attack": 81920,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "spiritId": 600113
+  },
+  "600114": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 14,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 163840000,
+    "attack": 163840,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "spiritId": 600114
+  },
+  "600115": {
+    "spiritType": 6001,
+    "spiritName": "生化巨人",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 327680000,
+    "attack": 327680,
+    "moveSpeed": 800,
+    "attackSpeed": 100,
+    "spiritId": 600115
+  },
+  "700101": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 1,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 2500,
+    "attack": 10,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700101
+  },
+  "700102": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 2,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 5000,
+    "attack": 20,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700102
+  },
+  "700103": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 3,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 10000,
+    "attack": 40,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700103
+  },
+  "700104": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 4,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 20000,
+    "attack": 80,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700104
+  },
+  "700105": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 5,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 40000,
+    "attack": 160,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700105
+  },
+  "700106": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 6,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 80000,
+    "attack": 320,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700106
+  },
+  "700107": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 7,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 160000,
+    "attack": 640,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700107
+  },
+  "700108": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 8,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 320000,
+    "attack": 1280,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700108
+  },
+  "700109": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 9,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 640000,
+    "attack": 2560,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700109
+  },
+  "700110": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 10,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 1280000,
+    "attack": 5120,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700110
+  },
+  "700111": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 11,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 2560000,
+    "attack": 10240,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700111
+  },
+  "700112": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 12,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 5120000,
+    "attack": 20480,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700112
+  },
+  "700113": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 13,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 10240000,
+    "attack": 40960,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700113
+  },
+  "700114": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 14,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 20480000,
+    "attack": 81920,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700114
+  },
+  "700115": {
+    "spiritType": 7001,
+    "spiritName": "怪力者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 40960000,
+    "attack": 163840,
+    "moveSpeed": 650,
+    "attackSpeed": 100,
+    "spiritId": 700115
+  },
+  "800101": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 1,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 3750,
+    "attack": 8,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800101
+  },
+  "800102": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 2,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 7500,
+    "attack": 16,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800102
+  },
+  "800103": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 3,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 15000,
+    "attack": 32,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800103
+  },
+  "800104": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 4,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 30000,
+    "attack": 64,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800104
+  },
+  "800105": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 5,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 60000,
+    "attack": 128,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800105
+  },
+  "800106": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 6,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 120000,
+    "attack": 256,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800106
+  },
+  "800107": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 7,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 240000,
+    "attack": 512,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800107
+  },
+  "800108": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 8,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 480000,
+    "attack": 1024,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800108
+  },
+  "800109": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 9,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 960000,
+    "attack": 2048,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800109
+  },
+  "800110": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 10,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 1920000,
+    "attack": 4096,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800110
+  },
+  "800111": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 11,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 3840000,
+    "attack": 8192,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800111
+  },
+  "800112": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 12,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 7680000,
+    "attack": 16384,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800112
+  },
+  "800113": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 13,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 15360000,
+    "attack": 32768,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800113
+  },
+  "800114": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 14,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 30720000,
+    "attack": 65536,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800114
+  },
+  "800115": {
+    "spiritType": 8001,
+    "spiritName": "暴食者",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 61440000,
+    "attack": 131072,
+    "moveSpeed": 550,
+    "attackSpeed": 90,
+    "spiritId": 800115
+  },
+  "900101": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 1,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 2000,
+    "attack": 12,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900101
+  },
+  "900102": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 2,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 4000,
+    "attack": 24,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900102
+  },
+  "900103": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 3,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 8000,
+    "attack": 48,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900103
+  },
+  "900104": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 4,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 16000,
+    "attack": 96,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900104
+  },
+  "900105": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 5,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 32000,
+    "attack": 192,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900105
+  },
+  "900106": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 6,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 64000,
+    "attack": 384,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900106
+  },
+  "900107": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 7,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 128000,
+    "attack": 768,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900107
+  },
+  "900108": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 8,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 256000,
+    "attack": 1536,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900108
+  },
+  "900109": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 9,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 512000,
+    "attack": 3072,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900109
+  },
+  "900110": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 10,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 1024000,
+    "attack": 6144,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900110
+  },
+  "900111": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 11,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 2048000,
+    "attack": 12288,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900111
+  },
+  "900112": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 12,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 4096000,
+    "attack": 24576,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900112
+  },
+  "900113": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 13,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 8192000,
+    "attack": 49152,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900113
+  },
+  "900114": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 14,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 16384000,
+    "attack": 98304,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900114
+  },
+  "900115": {
+    "spiritType": 9001,
+    "spiritName": "武士",
+    "level": 15,
+    "levelUpExp": -1,
+    "expPerSec": -1,
+    "hp": 32768000,
+    "attack": 196608,
+    "moveSpeed": 600,
+    "attackSpeed": 110,
+    "spiritId": 900115
+  }
+}
