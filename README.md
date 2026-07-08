@@ -29,6 +29,9 @@ fileRules 字段
         //子表1
             ["道具配置表"] = new SheetRule
             {
+                //输出的json文件名字
+                OutputName = "xx.json",
+                
                 //转换数据 行范围[1,10]
                 RowRange = new RowRangeDef(1, 10),
                 
@@ -65,9 +68,55 @@ fileRules 字段
                 //指定哪些列为数组 (Excel 里面的内容格式 "1001,1002") 使用逗号分割
                 ArrayFields=["describeValues"]
                 
-                //当5行 B列的数据为空时是否在
+                //当某一列的数据为空，是否输出的json字段删除。
                 RemoveEmpty = true,
+                
+                // RoundFields = new List<string> { "H", "upgradeGold", "buildGoldCost" }, 指定列取整
+                // 指定全部列取整
+                RoundFields = new List<string> { "*" },
+                
+                //计算得出，Excel原本不存在的列。写入到json
+                ComputedColumns = new Dictionary<string, Func<IReadOnlyDictionary<string, object?>, object?>>
+                {
+                    ["spiritId"] = row =>
+                    {
+                        var spiritType = GetDouble(row, "spiritType");
+                        var level = GetDouble(row, "level");
+                        return spiritType * 100 + level;
+                    }
+                },
             }
         }
     }
+```
+
+在一个表Sheet 里面 还需要划分出来不同的表
+
+```plantuml
+    SubTables = new Dictionary<string, SubTableRule>
+    {
+        ["601"] = new SubTableRule
+        {
+            RowRange = new RowRangeDef(50, 80),
+            ColRange = new ColRangeDef("C", "D"),
+            CustomHeaders = new Dictionary<string, string>
+            {
+                ["C"] = "id",
+                ["D"] = "probability",
+            },
+            WrapWithSubKey = true,
+            OutputName = "默认道具和祈福签配置经典.json",
+        },
+    }
+    
+    //WrapWithSubKey
+    // 使用外面的键作为子表的key。
+    /**
+    {
+        601:[ 子表(50,80)行 [C,D]列 的所有的内容]
+    }
+    */
+    
+    //OutputName 设置相同的文件则把SubTable的内容输出到相同的文件中
+    
 ```

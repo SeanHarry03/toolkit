@@ -37,7 +37,7 @@
     "itemName": "3级控制中心",
     "itemHp": 1,
     "upgradeGold": 100,
-    "upgradeRequire": "202",
+    "upgradeRequire": 202,
     "goldPerSec": 4,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -68,7 +68,7 @@
     "itemName": "5级控制中心",
     "itemHp": 1,
     "upgradeGold": 400,
-    "upgradeRequire": "205",
+    "upgradeRequire": 205,
     "goldPerSec": 16,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -101,7 +101,7 @@
     "itemHp": 1,
     "upgradeGold": 1600,
     "upgradeEnergy": 128,
-    "upgradeRequire": "207",
+    "upgradeRequire": 207,
     "goldPerSec": 64,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -118,7 +118,7 @@
     "itemHp": 1,
     "upgradeGold": 3200,
     "upgradeEnergy": 256,
-    "upgradeRequire": "209",
+    "upgradeRequire": 209,
     "goldPerSec": 128,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -135,7 +135,7 @@
     "itemHp": 1,
     "upgradeGold": 6400,
     "upgradeEnergy": 512,
-    "upgradeRequire": "210",
+    "upgradeRequire": 210,
     "goldPerSec": 256,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -150,7 +150,7 @@
     "maxLevel": 10,
     "itemName": "10级控制中心",
     "itemHp": 1,
-    "upgradeRequire": "211",
+    "upgradeRequire": 211,
     "goldPerSec": 512,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
@@ -342,7 +342,7 @@
     "maxLevel": 15,
     "itemName": "14级防护门",
     "itemHp": 819200,
-    "upgradeGold": "131072",
+    "upgradeGold": 131072,
     "upgradeEnergy": 8192,
     "itemDescription": "防御猛鬼的入侵\n血量{0}",
     "describeValues": [
@@ -787,7 +787,7 @@
     "itemHp": 1,
     "upgradeGold": 1024,
     "upgradeEnergy": 64,
-    "upgradeRequire": "10101",
+    "upgradeRequire": 10101,
     "removeGold": 256,
     "attack": 1280,
     "attackRange": 60,
@@ -825,7 +825,7 @@
     "itemHp": 1,
     "upgradeGold": 4096,
     "upgradeEnergy": 256,
-    "upgradeRequire": "10102",
+    "upgradeRequire": 10102,
     "removeGold": 1024,
     "removeEnergy": 64,
     "attack": 5120,
@@ -864,7 +864,7 @@
     "itemHp": 1,
     "upgradeGold": 16384,
     "upgradeEnergy": 1024,
-    "upgradeRequire": "10103",
+    "upgradeRequire": 10103,
     "removeGold": 4096,
     "removeEnergy": 256,
     "attack": 20480,
@@ -884,7 +884,7 @@
     "itemHp": 1,
     "upgradeGold": 32768,
     "upgradeEnergy": 2048,
-    "upgradeRequire": "10104",
+    "upgradeRequire": 10104,
     "removeGold": 8192,
     "removeEnergy": 512,
     "attack": 40960,
@@ -904,7 +904,7 @@
     "itemHp": 1,
     "upgradeGold": 65536,
     "upgradeEnergy": 4096,
-    "upgradeRequire": "10105",
+    "upgradeRequire": 10105,
     "removeGold": 16384,
     "removeEnergy": 1024,
     "attack": 81920,
@@ -924,7 +924,7 @@
     "itemHp": 1,
     "upgradeGold": 131072,
     "upgradeEnergy": 8192,
-    "upgradeRequire": "10106",
+    "upgradeRequire": 10106,
     "removeGold": 32768,
     "removeEnergy": 2048,
     "attack": 163840,
@@ -942,7 +942,7 @@
     "maxLevel": 15,
     "itemName": "14级炮塔",
     "itemHp": 1,
-    "upgradeGold": "262144",
+    "upgradeGold": 262144,
     "upgradeEnergy": 16384,
     "removeGold": 65536,
     "removeEnergy": 4096,
@@ -1065,7 +1065,7 @@
     "itemHp": 1,
     "upgradeGold": 1024,
     "upgradeEnergy": 64,
-    "upgradeRequire": "10101",
+    "upgradeRequire": 10101,
     "removeGold": 256,
     "attack": 2560,
     "attackRange": 60,
@@ -1103,7 +1103,7 @@
     "itemHp": 1,
     "upgradeGold": 4096,
     "upgradeEnergy": 256,
-    "upgradeRequire": "10102",
+    "upgradeRequire": 10102,
     "removeGold": 1024,
     "removeEnergy": 64,
     "attack": 10240,
@@ -1142,7 +1142,7 @@
     "itemHp": 1,
     "upgradeGold": 16384,
     "upgradeEnergy": 1024,
-    "upgradeRequire": "10103",
+    "upgradeRequire": 10103,
     "removeGold": 4096,
     "removeEnergy": 256,
     "attack": 40960,
@@ -1162,7 +1162,7 @@
     "itemHp": 1,
     "upgradeGold": 32768,
     "upgradeEnergy": 2048,
-    "upgradeRequire": "10104",
+    "upgradeRequire": 10104,
     "removeGold": 8192,
     "removeEnergy": 512,
     "attack": 81920,
@@ -1182,7 +1182,7 @@
     "itemHp": 1,
     "upgradeGold": 65536,
     "upgradeEnergy": 4096,
-    "upgradeRequire": "10105",
+    "upgradeRequire": 10105,
     "removeGold": 16384,
     "removeEnergy": 1024,
     "attack": 163840,
@@ -1202,7 +1202,7 @@
     "itemHp": 1,
     "upgradeGold": 131072,
     "upgradeEnergy": 8192,
-    "upgradeRequire": "10106",
+    "upgradeRequire": 10106,
     "removeGold": 32768,
     "removeEnergy": 2048,
     "attack": 327680,
@@ -1220,7 +1220,7 @@
     "maxLevel": 15,
     "itemName": "14级战斗机",
     "itemHp": 1,
-    "upgradeGold": "262144",
+    "upgradeGold": 262144,
     "upgradeEnergy": 16384,
     "removeGold": 65536,
     "removeEnergy": 4096,
@@ -1351,6 +1351,7 @@
     "upgradeEnergy": 256,
     "removeEnergy": 32,
     "itemDescription": "在猛鬼攻击你的大门时生成极少量赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 100
@@ -1365,6 +1366,7 @@
     "upgradeEnergy": 1024,
     "removeEnergy": 128,
     "itemDescription": "在猛鬼攻击你的大门时生成少量赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 200
@@ -1379,6 +1381,7 @@
     "upgradeEnergy": 4096,
     "removeEnergy": 512,
     "itemDescription": "在猛鬼攻击你的大门时生成部分赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 400
@@ -1393,6 +1396,7 @@
     "upgradeEnergy": 16384,
     "removeEnergy": 2048,
     "itemDescription": "在猛鬼攻击你的大门时生成较多赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 800
@@ -1407,6 +1411,7 @@
     "upgradeEnergy": 65536,
     "removeEnergy": 8192,
     "itemDescription": "在猛鬼攻击你的大门时生成大量赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 1600
@@ -1420,6 +1425,7 @@
     "itemHp": 1,
     "removeEnergy": 32768,
     "itemDescription": "在猛鬼攻击你的大门时生成超大量赔偿金",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 8,
     "skillValue": 3200
@@ -1433,7 +1439,7 @@
     "itemHp": 1,
     "upgradeEnergy": 16,
     "removeEnergy": 1,
-    "goldPerSec": "1",
+    "goldPerSec": 1,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       1
@@ -1448,7 +1454,7 @@
     "itemHp": 1,
     "upgradeEnergy": 32,
     "removeEnergy": 2,
-    "goldPerSec": "2",
+    "goldPerSec": 2,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       2
@@ -1463,7 +1469,7 @@
     "itemHp": 1,
     "upgradeEnergy": 64,
     "removeEnergy": 4,
-    "goldPerSec": "4",
+    "goldPerSec": 4,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       4
@@ -1478,7 +1484,7 @@
     "itemHp": 1,
     "upgradeEnergy": 128,
     "removeEnergy": 8,
-    "goldPerSec": "8",
+    "goldPerSec": 8,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       8
@@ -1493,7 +1499,7 @@
     "itemHp": 1,
     "upgradeEnergy": 256,
     "removeEnergy": 16,
-    "goldPerSec": "16",
+    "goldPerSec": 16,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       16
@@ -1507,7 +1513,7 @@
     "itemName": "超大蛋糕",
     "itemHp": 1,
     "removeEnergy": 32,
-    "goldPerSec": "32",
+    "goldPerSec": 32,
     "itemDescription": "每秒生产{0}金币",
     "describeValues": [
       32
@@ -1636,7 +1642,7 @@
     "maxLevel": 2,
     "itemName": "水稻",
     "itemHp": 1,
-    "upgradeGold": "16",
+    "upgradeGold": 16,
     "removeGold": 2,
     "goldPerSec": 1,
     "itemDescription": "每秒生产{0}金币",
@@ -1671,6 +1677,7 @@
     "describeValues": [
       2
     ],
+    "triggerCondition": 1,
     "maxCount": 4,
     "skillEffect": 4,
     "skillValue": 2
@@ -1689,6 +1696,7 @@
       30,
       3
     ],
+    "triggerCondition": 4,
     "triggerProbability": 30,
     "maxCount": 1,
     "skillCd": 20,
@@ -1709,6 +1717,7 @@
       30,
       3
     ],
+    "triggerCondition": 5,
     "maxCount": 1,
     "skillCd": 20,
     "skillEffect": 7,
@@ -1727,6 +1736,7 @@
     "describeValues": [
       20
     ],
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillCd": 20,
     "skillEffect": 5,
@@ -1745,6 +1755,7 @@
     "describeValues": [
       1
     ],
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 10,
     "skillValue": 1
@@ -1762,6 +1773,7 @@
       50,
       3
     ],
+    "triggerCondition": 6,
     "maxCount": 1,
     "activeDuration": 150,
     "skillEffect": 19,
@@ -1782,6 +1794,7 @@
       35,
       20
     ],
+    "triggerCondition": 3,
     "maxCount": 1,
     "skillCd": 60,
     "skillEffect": 11,
@@ -1801,6 +1814,7 @@
     "describeValues": [
       25
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 2,
     "skillValue": 25
@@ -1818,6 +1832,7 @@
     "describeValues": [
       50
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 2,
     "skillValue": 50
@@ -1835,6 +1850,7 @@
     "describeValues": [
       75
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 2,
     "skillValue": 75
@@ -1852,6 +1868,7 @@
     "describeValues": [
       100
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 2,
     "skillValue": 100
@@ -1869,6 +1886,7 @@
     "describeValues": [
       50
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 1,
     "skillValue": 50
@@ -1884,6 +1902,7 @@
     "removeEnergy": 16,
     "buildEnergyCost": 128,
     "itemDescription": "给予炮台吸金的能力,获取金币数取决于炮台等级",
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 9,
     "skillValue": 100
@@ -1897,6 +1916,7 @@
     "itemHp": 1,
     "removeEnergy": 32,
     "itemDescription": "给予炮台吸金的能力,获取金币数取决于炮台等级",
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 9,
     "skillValue": 200
@@ -1913,6 +1933,7 @@
     "describeValues": [
       30
     ],
+    "triggerCondition": 5,
     "maxCount": 1,
     "activeDuration": 150,
     "skillEffect": 12,
@@ -1927,11 +1948,12 @@
     "itemHp": 1,
     "upgradeEnergy": 8192,
     "removeEnergy": 512,
-    "buildEnergyCost": "2048",
+    "buildEnergyCost": 2048,
     "itemDescription": "所有炮台增加{0}%攻击力",
     "describeValues": [
       30
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 3,
     "skillValue": 30
@@ -1948,6 +1970,7 @@
     "describeValues": [
       50
     ],
+    "triggerCondition": 0,
     "maxCount": 1,
     "skillEffect": 3,
     "skillValue": 50
@@ -1965,6 +1988,7 @@
       35,
       3
     ],
+    "triggerCondition": 3,
     "maxCount": 1,
     "activeDuration": 200,
     "skillEffect": 18,
@@ -1979,11 +2003,12 @@
     "itemName": "捕获器",
     "itemHp": 1,
     "removeEnergy": 128,
-    "buildEnergyCost": "1024",
+    "buildEnergyCost": 1024,
     "itemDescription": "100%对逃跑的猛鬼射出捕获网并网住{0}秒",
     "describeValues": [
       3
     ],
+    "triggerCondition": 2,
     "maxCount": 1,
     "skillCd": 20,
     "skillEffect": 20,
@@ -2002,6 +2027,7 @@
       50,
       5
     ],
+    "triggerCondition": 2,
     "maxCount": 1,
     "activeDuration": 300,
     "skillEffect": 17,
@@ -2021,6 +2047,7 @@
     "describeValues": [
       20
     ],
+    "triggerCondition": 1,
     "triggerProbability": -1,
     "maxCount": 1,
     "activeDuration": 70,
@@ -2039,6 +2066,7 @@
       2,
       10
     ],
+    "triggerCondition": 0,
     "triggerProbability": -1,
     "skillCd": 20,
     "skillEffect": 4,
@@ -2063,13 +2091,14 @@
   "42901": {
     "id": 42901,
     "itemType": 429,
-    "itemLevel": "1",
-    "maxLevel": "1",
+    "itemLevel": 1,
+    "maxLevel": 1,
     "itemName": "速修",
     "itemDescription": "快速修复全员门的{0}%血量",
     "describeValues": [
       50
     ],
+    "triggerCondition": 0,
     "triggerProbability": -1,
     "skillCd": 20,
     "skillEffect": 22,
@@ -2078,10 +2107,11 @@
   "43001": {
     "id": 43001,
     "itemType": 430,
-    "itemLevel": "1",
-    "maxLevel": "1",
+    "itemLevel": 1,
+    "maxLevel": 1,
     "itemName": "驱散",
     "itemDescription": "将场上所有猛鬼赶到回血点",
+    "triggerCondition": 0,
     "triggerProbability": -1,
     "skillCd": 10,
     "skillEffect": 23
@@ -2089,8 +2119,8 @@
   "50101": {
     "id": 50101,
     "itemType": 501,
-    "itemLevel": "1",
-    "maxLevel": "1",
+    "itemLevel": 1,
+    "maxLevel": 1,
     "itemName": "迷你无人机",
     "goldPerSec": 4,
     "itemDescription": "简介：主人别嫌弃我，我会努力工作的~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
@@ -2101,8 +2131,8 @@
   "50201": {
     "id": 50201,
     "itemType": 502,
-    "itemLevel": "1",
-    "maxLevel": "1",
+    "itemLevel": 1,
+    "maxLevel": 1,
     "itemName": "黄金无人机",
     "goldPerSec": 8,
     "itemDescription": "简介：能辅助主人是我的荣幸，我会努力工作的~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
@@ -2113,8 +2143,8 @@
   "50301": {
     "id": 50301,
     "itemType": 503,
-    "itemLevel": "1",
-    "maxLevel": "1",
+    "itemLevel": 1,
+    "maxLevel": 1,
     "itemName": "天使无人机",
     "goldPerSec": 16,
     "itemDescription": "简介：主人的眼光太棒了，我们一起击败猛鬼吧~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
@@ -2396,6 +2426,7 @@
     "itemHp": 100,
     "removeGold": 1,
     "itemDescription": "当门被攻击时，优先吸收伤害，等窗帘坏了，门才扣血",
+    "triggerCondition": 1,
     "maxCount": 1,
     "skillEffect": 14,
     "skillValue": 200

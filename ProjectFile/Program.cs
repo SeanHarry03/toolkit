@@ -81,7 +81,7 @@ var fileRules = new Dictionary<string, FileRule>
                     ["S"] = "energyPerSec",
                     ["T"] = "itemDescription",
                     ["U"] = "describeValues",
-                    ["V"] = "triggerProbability",
+                    ["V"] = "triggerCondition",
                     ["W"] = "triggerProbability",
                     ["X"] = "maxCount",
                     ["Y"] = "activeDuration",
@@ -101,7 +101,7 @@ var fileRules = new Dictionary<string, FileRule>
             },
             ["猛鬼配置表"] = new SheetRule()
             {
-                RowRange = new RowRangeDef(15, 254),
+                RowRange = new RowRangeDef(15, 270),
                 // 列范围
                 ColRange = new ColRangeDef("D", "N"),
                 CustomHeaders = new Dictionary<string, string>
@@ -160,7 +160,6 @@ var fileRules = new Dictionary<string, FileRule>
             },
             ["默认道具和祈福签配置"] = new SheetRule()
             {
-                OutputName = "默认道具和祈福签配置.json",
                 RoundFields = new List<string> { "*" },
 
                 SubTables = new Dictionary<string, SubTableRule>
@@ -174,7 +173,8 @@ var fileRules = new Dictionary<string, FileRule>
                             ["C"] = "id",
                             ["D"] = "probability",
                         },
-                        KeyColumn = "id",
+                        WrapWithSubKey = true,
+                        OutputName = "默认道具和祈福签配置经典.json",
                     },
                     ["701"] = new SubTableRule
                     {
@@ -185,7 +185,8 @@ var fileRules = new Dictionary<string, FileRule>
                             ["G"] = "id",
                             ["H"] = "probability",
                         },
-                        KeyColumn = "id",
+                        WrapWithSubKey = true,
+                        OutputName = "默认道具和祈福签配置经典.json",
                     },
                     ["801"] = new SubTableRule
                     {
@@ -196,7 +197,44 @@ var fileRules = new Dictionary<string, FileRule>
                             ["L"] = "id",
                             ["M"] = "probability",
                         },
-                        KeyColumn = "id",
+                        WrapWithSubKey = true,
+                        OutputName = "默认道具和祈福签配置经典.json",
+                    },
+                    ["6011"] = new SubTableRule
+                    {
+                        RowRange = new RowRangeDef(50, 73),
+                        ColRange = new ColRangeDef("T", "U"),
+                        CustomHeaders = new Dictionary<string, string>
+                        {
+                            ["T"] = "id",
+                            ["U"] = "probability",
+                        },
+                        WrapWithSubKey = true,
+                        OutputName = "默认道具和祈福签配置挑战.json",
+                    },
+                    ["7011"] = new SubTableRule
+                    {
+                        RowRange = new RowRangeDef(50, 81),
+                        ColRange = new ColRangeDef("X", "Y"),
+                        CustomHeaders = new Dictionary<string, string>
+                        {
+                            ["X"] = "id",
+                            ["Y"] = "probability",
+                        },
+                        WrapWithSubKey = true,
+                        OutputName = "默认道具和祈福签配置挑战.json",
+                    },
+                    ["8011"] = new SubTableRule
+                    {
+                        RowRange = new RowRangeDef(50, 83),
+                        ColRange = new ColRangeDef("AC", "AD"),
+                        CustomHeaders = new Dictionary<string, string>
+                        {
+                            ["AC"] = "id",
+                            ["AD"] = "probability",
+                        },
+                        OutputName = "默认道具和祈福签配置挑战.json",
+                        WrapWithSubKey = true,
                     },
                 }
             },
@@ -205,23 +243,40 @@ var fileRules = new Dictionary<string, FileRule>
                 OutputName = "LevelConfig.json",
                 RoundFields = new List<string> { "*" },
 
-                // 1-indexed 行范围（对应 Excel 左侧物理行号）
-                RowRange = new RowRangeDef(14, 28),
-                // 列范围
-                ColRange = new ColRangeDef("H", "M"),
-                CustomHeaders = new Dictionary<string, string>
+                SubTables = new Dictionary<string, SubTableRule>
                 {
-                    ["H"] = "level",
-                    ["I"] = "hpFactor",
-                    ["J"] = "attackFactor",
-                    ["K"] = "moveFactor",
-                    ["L"] = "attackSpeed",
-                    ["M"] = "waveList",
+                    ["waveList"] = new SubTableRule
+                    {
+                        RowRange = new RowRangeDef(14, 28),
+                        ColRange = new ColRangeDef("H", "M"),
+                        CustomHeaders = new Dictionary<string, string>
+                        {
+                            ["H"] = "level",
+                            ["I"] = "hpFactor",
+                            ["J"] = "attackFactor",
+                            ["K"] = "moveFactor",
+                            ["L"] = "attackSpeed",
+                            ["M"] = "waveList",
+                        },
+                        RemoveEmpty = true,
+                        OutputName = "waveList.json",
+                        ArrayFields = ["waveList"],
+                    },
+                    ["WaveConfig"] = new SubTableRule
+                    {
+                        RowRange = new RowRangeDef(38, 92),
+                        ColRange = new ColRangeDef("H", "I"),
+                        CustomHeaders = new Dictionary<string, string>
+                        {
+                            ["H"] = "waveId",
+                            ["I"] = "spiritIdList",
+                        },
+                        RemoveEmpty = true, 
+                        OutputName = "WaveConfig.json",
+                        ArrayFields = ["spiritIdList"],
+                    },
                 },
-                KeyColumn = "level",
-                RemoveEmpty = true,
-                ArrayFields = ["waveList"],
-            }
+            },
         }
     },
 };
@@ -319,8 +374,11 @@ static object? GetCellValue(IXLCell cell)
     if (cell.Value.IsBoolean)
         return cell.Value.GetBoolean();
 
-    // 文本或其他类型
-    return cell.Value.GetText()?.Replace("\\n", "\n");
+    // 文本或其他类型：尝试转数字，转换不了就保留原文本
+    var text = cell.Value.GetText()?.Replace("\\n", "\n");
+    if (text != null && double.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out double num))
+        return FixFloat(num);
+    return text;
 }
 
 // 解析取整字段映射，支持配置列字母或属性键名，或者用 "*" 取整所有列
@@ -566,24 +624,60 @@ foreach (var fileName in excelFiles)
             // ======== 多子表模式：一个 Sheet 内多个独立区域 ========
             if (sheetRule.SubTables != null)
             {
-                var combined = new Dictionary<string, object>();
-                int totalCount = 0;
+                // 按 OutputName 分组：相同 OutputName 的子表合并输出到同一个文件
+                var outputGroups = new Dictionary<string, Dictionary<string, object>>();
+                var outputCounts = new Dictionary<string, int>();
+
                 foreach (var (subKey, subRule) in sheetRule.SubTables)
                 {
                     var regionData = ProcessRegion(worksheet, subRule);
-                    combined[subKey] = regionData;
-                    totalCount += regionData is Dictionary<string, Dictionary<string, object?>> d
+                    int dataCount = regionData is Dictionary<string, Dictionary<string, object?>> d
                         ? d.Count
                         : ((System.Collections.IList)regionData).Count;
+
+                    // 确定输出文件名
+                    string outName = subRule.OutputName
+                                     ?? sheetRule.OutputName
+                                     ?? $"{Path.GetFileNameWithoutExtension(fileName)}_{sheetName}.json";
+
+                    if (!outputGroups.ContainsKey(outName))
+                    {
+                        outputGroups[outName] = new Dictionary<string, object>();
+                        outputCounts[outName] = 0;
+                    }
+
+                    if (subRule.WrapWithSubKey)
+                    {
+                        // 用子表 key（如 "601"）作为外层包裹
+                        outputGroups[outName][subKey] = regionData;
+                    }
+                    else
+                    {
+                        // 不包裹：直接将数据平铺合并
+                        if (regionData is Dictionary<string, Dictionary<string, object?>> dictData)
+                        {
+                            foreach (var (k, v) in dictData)
+                                outputGroups[outName][k] = v!;
+                        }
+                        else
+                        {
+                            // 列表数据无法直接平铺到字典，用子表 key 做兜底
+                            outputGroups[outName][subKey] = regionData;
+                        }
+                    }
+
+                    outputCounts[outName] += dataCount;
                 }
 
-                string subOutName = sheetRule.OutputName
-                                    ?? $"{Path.GetFileNameWithoutExtension(fileName)}_{sheetName}.json";
+                // 输出每个分组文件
+                foreach (var (outName, groupData) in outputGroups)
+                {
+                    var outPath = Path.Combine(outputDir, outName);
+                    var json = JsonSerializer.Serialize(groupData, jsonOptions);
+                    File.WriteAllText(outPath, json, System.Text.Encoding.UTF8);
+                    Console.WriteLine($"  -> {outName} ({groupData.Count} 个区域, {outputCounts[outName]} 条数据)");
+                }
 
-                var subOutPath = Path.Combine(outputDir, subOutName);
-                var subJson = JsonSerializer.Serialize(combined, jsonOptions);
-                File.WriteAllText(subOutPath, subJson, System.Text.Encoding.UTF8);
-                Console.WriteLine($"  -> {subOutName} ({combined.Count} 个区域, {totalCount} 条数据)");
                 continue;
             }
 
@@ -766,6 +860,12 @@ internal class SubTableRule
     public bool RemoveEmpty { get; set; } = true;
     public Dictionary<string, Func<IReadOnlyDictionary<string, object?>, object?>>? ComputedColumns { get; set; }
     public List<string> RoundFields { get; set; } = [];
+
+    /// <summary>输出文件名（相同 OutputName 的子表合并到同一个文件）</summary>
+    public string? OutputName { get; set; }
+
+    /// <summary>是否用子表 key 作为外层包裹（默认 true）。设为 false 则数据直接平铺</summary>
+    public bool WrapWithSubKey { get; set; } = true;
 }
 
 /// <summary>Sheet 级规则</summary>
