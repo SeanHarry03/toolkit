@@ -262,6 +262,7 @@ var fileRules = new Dictionary<string, FileRule>
                         OutputName = "waveList.json",
                         ArrayFields = ["waveList"],
                         WrapWithSubKey = false,
+                        NoKeyOutputMode = NoKeyOutputMode.RowIndexObject,
                     },
                     ["WaveConfig"] = new SubTableRule
                     {
@@ -276,6 +277,7 @@ var fileRules = new Dictionary<string, FileRule>
                         OutputName = "WaveConfig.json",
                         ArrayFields = ["spiritIdList"],
                         WrapWithSubKey = false,
+                        NoKeyOutputMode = NoKeyOutputMode.RowIndexObject,
                     },
                 },
             },
@@ -500,6 +502,33 @@ static Dictionary<string, Dictionary<string, object?>> WrapWithKey(
     return result;
 }
 
+// 按自然序号 1、2、3 包裹数组为字典
+static Dictionary<string, Dictionary<string, object?>> WrapWithRowIndex(
+    List<Dictionary<string, object?>> rows)
+{
+    var result = new Dictionary<string, Dictionary<string, object?>>();
+    for (int i = 0; i < rows.Count; i++)
+    {
+        result[(i + 1).ToString(CultureInfo.InvariantCulture)] = rows[i];
+    }
+
+    return result;
+}
+
+// 根据 KeyColumn 和无 KeyColumn 输出规则构造最终数据
+static object BuildRowsOutput(
+    List<Dictionary<string, object?>> rows,
+    string? keyColumn,
+    NoKeyOutputMode noKeyOutputMode)
+{
+    if (!string.IsNullOrEmpty(keyColumn))
+        return WrapWithKey(rows, keyColumn!);
+
+    return noKeyOutputMode == NoKeyOutputMode.RowIndexObject
+        ? WrapWithRowIndex(rows)
+        : rows;
+}
+
 // 处理一个子表区域，返回按规则转换后的数据（数组或 key 包裹的字典）
 static object ProcessRegion(
     IXLWorksheet worksheet,
@@ -559,11 +588,7 @@ static object ProcessRegion(
             rows.Add(cleanRow);
     }
 
-    // 是否按 key 包裹
-    if (!string.IsNullOrEmpty(rule.KeyColumn))
-        return WrapWithKey(rows, rule.KeyColumn!);
-
-    return rows;
+    return BuildRowsOutput(rows, rule.KeyColumn, rule.NoKeyOutputMode);
 }
 
 // ==================== JSON 序列化选项 ====================
@@ -844,16 +869,9 @@ foreach (var fileName in excelFiles)
             }
         }
 
-        // 是否按 key 字段包裹外层
-        object outputData;
-        if (!string.IsNullOrEmpty(finalRule.KeyColumn))
-        {
-            outputData = WrapWithKey(processedRows, finalRule.KeyColumn!);
-        }
-        else
-        {
-            outputData = processedRows;
-        }
+        // 是否按 key 字段包裹外层；未指定 key 时可配置输出数组或自然序号对象
+        var noKeyOutputMode = sheetRule?.NoKeyOutputMode ?? finalRule.NoKeyOutputMode;
+        object outputData = BuildRowsOutput(processedRows, finalRule.KeyColumn, noKeyOutputMode);
 
         // 确定输出文件名：sheet 规则名 > 文件规则映射名 > 默认名
         string outputFileName =
@@ -886,6 +904,16 @@ internal record struct ColRangeDef(string StartCol, string EndCol);
 /// <summary>行范围（1-indexed，对应 Excel 物理行号）</summary>
 internal record struct RowRangeDef(int Start, int End);
 
+/// <summary>未指定 KeyColumn 时的输出模式</summary>
+internal enum NoKeyOutputMode
+{
+    /// <summary>输出数组：[{}, {}]</summary>
+    Array,
+
+    /// <summary>输出自然序号对象：{"1": {}, "2": {}}</summary>
+    RowIndexObject,
+}
+
 /// <summary>子表规则（一个 Sheet 内多个独立区域的配置）</summary>
 internal class SubTableRule
 {
@@ -898,6 +926,7 @@ internal class SubTableRule
     public bool RemoveEmpty { get; set; } = true;
     public Dictionary<string, Func<IReadOnlyDictionary<string, object?>, object?>>? ComputedColumns { get; set; }
     public List<string> RoundFields { get; set; } = [];
+    public NoKeyOutputMode NoKeyOutputMode { get; set; } = NoKeyOutputMode.Array;
 
     /// <summary>输出文件名（相同 OutputName 的子表合并到同一个文件）</summary>
     public string? OutputName { get; set; }
@@ -920,6 +949,7 @@ internal class SheetRule
     public Dictionary<string, Func<IReadOnlyDictionary<string, object?>, object?>>? ComputedColumns { get; set; }
     public Dictionary<string, SubTableRule>? SubTables { get; set; }
     public List<string> RoundFields { get; set; } = [];
+    public NoKeyOutputMode NoKeyOutputMode { get; set; } = NoKeyOutputMode.Array;
 
     public FileRule ToFileRule()
     {
@@ -930,6 +960,7 @@ internal class SheetRule
             RemoveEmpty = RemoveEmpty,
             ExcludeCols = ExcludeCols,
             RoundFields = RoundFields,
+            NoKeyOutputMode = NoKeyOutputMode,
             OutputNames = OutputName != null
                 ? new Dictionary<string, string> { ["*"] = OutputName }
                 : [],
@@ -947,4 +978,5 @@ internal class FileRule
     public Dictionary<string, string> OutputNames { get; set; } = [];
     public Dictionary<string, SheetRule>? Sheets { get; set; }
     public List<string> RoundFields { get; set; } = [];
+    public NoKeyOutputMode NoKeyOutputMode { get; set; } = NoKeyOutputMode.Array;
 }

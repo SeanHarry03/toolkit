@@ -65,6 +65,10 @@ fileRules 字段
                 */
                 KeyColumn = "id",
                 
+                //选择在没有设置KeyColumn 的时候，输出数组还是使用自然序号输出 1、2、3
+                NoKeyOutputMode = NoKeyOutputMode.RowIndexObject,
+                NoKeyOutputMode = NoKeyOutputMode.Array,
+                
                 //指定哪些列为数组 (Excel 里面的内容格式 "1001,1002") 使用逗号分割
                 ArrayFields=["describeValues"]
                 
@@ -116,7 +120,8 @@ fileRules 字段
         601:[ 子表(50,80)行 [C,D]列 的所有的内容]
     }
     */
-    
     //OutputName 设置相同的文件则把SubTable的内容输出到相同的文件中
+    
+ 
     
 ```
