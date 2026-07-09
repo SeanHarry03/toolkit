@@ -261,6 +261,7 @@ var fileRules = new Dictionary<string, FileRule>
                         RemoveEmpty = true,
                         OutputName = "waveList.json",
                         ArrayFields = ["waveList"],
+                        WrapWithSubKey = false,
                     },
                     ["WaveConfig"] = new SubTableRule
                     {
@@ -271,9 +272,10 @@ var fileRules = new Dictionary<string, FileRule>
                             ["H"] = "waveId",
                             ["I"] = "spiritIdList",
                         },
-                        RemoveEmpty = true, 
+                        RemoveEmpty = true,
                         OutputName = "WaveConfig.json",
                         ArrayFields = ["spiritIdList"],
+                        WrapWithSubKey = false,
                     },
                 },
             },
@@ -627,6 +629,8 @@ foreach (var fileName in excelFiles)
                 // 按 OutputName 分组：相同 OutputName 的子表合并输出到同一个文件
                 var outputGroups = new Dictionary<string, Dictionary<string, object>>();
                 var outputCounts = new Dictionary<string, int>();
+                var directOutputs = new Dictionary<string, object>();
+                var directOutputCounts = new Dictionary<string, int>();
 
                 foreach (var (subKey, subRule) in sheetRule.SubTables)
                 {
@@ -640,33 +644,59 @@ foreach (var fileName in excelFiles)
                                      ?? sheetRule.OutputName
                                      ?? $"{Path.GetFileNameWithoutExtension(fileName)}_{sheetName}.json";
 
-                    if (!outputGroups.ContainsKey(outName))
-                    {
-                        outputGroups[outName] = new Dictionary<string, object>();
-                        outputCounts[outName] = 0;
-                    }
-
                     if (subRule.WrapWithSubKey)
                     {
+                        if (directOutputs.ContainsKey(outName))
+                        {
+                            throw new InvalidOperationException(
+                                $"不包裹输出的子表不能和其他子表输出到同一个文件: {outName}");
+                        }
+
+                        if (!outputGroups.ContainsKey(outName))
+                        {
+                            outputGroups[outName] = new Dictionary<string, object>();
+                            outputCounts[outName] = 0;
+                        }
+
                         // 用子表 key（如 "601"）作为外层包裹
                         outputGroups[outName][subKey] = regionData;
+                        outputCounts[outName] += dataCount;
                     }
                     else
                     {
                         // 不包裹：直接将数据平铺合并
                         if (regionData is Dictionary<string, Dictionary<string, object?>> dictData)
                         {
+                            if (directOutputs.ContainsKey(outName))
+                            {
+                                throw new InvalidOperationException(
+                                    $"不包裹输出的子表不能和其他子表输出到同一个文件: {outName}");
+                            }
+
+                            if (!outputGroups.ContainsKey(outName))
+                            {
+                                outputGroups[outName] = new Dictionary<string, object>();
+                                outputCounts[outName] = 0;
+                            }
+
                             foreach (var (k, v) in dictData)
                                 outputGroups[outName][k] = v!;
+
+                            outputCounts[outName] += dataCount;
                         }
                         else
                         {
-                            // 列表数据无法直接平铺到字典，用子表 key 做兜底
-                            outputGroups[outName][subKey] = regionData;
+                            if (outputGroups.ContainsKey(outName) || directOutputs.ContainsKey(outName))
+                            {
+                                throw new InvalidOperationException(
+                                    $"不包裹输出的列表子表不能和其他子表输出到同一个文件: {outName}");
+                            }
+
+                            // 列表数据不再使用 subKey 包裹，直接作为 JSON 根节点输出
+                            directOutputs[outName] = regionData;
+                            directOutputCounts[outName] = dataCount;
                         }
                     }
-
-                    outputCounts[outName] += dataCount;
                 }
 
                 // 输出每个分组文件
@@ -676,6 +706,14 @@ foreach (var fileName in excelFiles)
                     var json = JsonSerializer.Serialize(groupData, jsonOptions);
                     File.WriteAllText(outPath, json, System.Text.Encoding.UTF8);
                     Console.WriteLine($"  -> {outName} ({groupData.Count} 个区域, {outputCounts[outName]} 条数据)");
+                }
+
+                foreach (var (outName, directData) in directOutputs)
+                {
+                    var outPath = Path.Combine(outputDir, outName);
+                    var json = JsonSerializer.Serialize(directData, jsonOptions);
+                    File.WriteAllText(outPath, json, System.Text.Encoding.UTF8);
+                    Console.WriteLine($"  -> {outName} ({directOutputCounts[outName]} 条数据)");
                 }
 
                 continue;

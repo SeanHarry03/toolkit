@@ -1691,7 +1691,7 @@
     "itemHp": 1,
     "removeEnergy": 64,
     "buildEnergyCost": 128,
-    "itemDescription": "当猛鬼释放技能时，{0}%的概率触发眩晕效果,控制猛鬼{1}秒",
+    "itemDescription": "当猛鬼释放技能时，{0}%的概率触发眩晕效果,控制猛鬼{1}秒,（只能在经典模式建造）",
     "describeValues": [
       30,
       3
@@ -2081,7 +2081,8 @@
     "itemName": "强制引鬼器",
     "itemHp": 1,
     "removeEnergy": 128,
-    "itemDescription": "主动点击释放，强制吸引猛鬼攻击自己",
+    "buildEnergyCost": 512,
+    "itemDescription": "主动点击释放，强制吸引猛鬼攻击自己（只能在挑战模式建造）",
     "triggerProbability": -1,
     "maxCount": 1,
     "activeDuration": 70,
@@ -2123,7 +2124,7 @@
     "maxLevel": 1,
     "itemName": "迷你无人机",
     "goldPerSec": 4,
-    "itemDescription": "简介：主人别嫌弃我，我会努力工作的~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
+    "itemDescription": "简介：主人别嫌弃我~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
     "describeValues": [
       4
     ]
@@ -2135,7 +2136,7 @@
     "maxLevel": 1,
     "itemName": "黄金无人机",
     "goldPerSec": 8,
-    "itemDescription": "简介：能辅助主人是我的荣幸，我会努力工作的~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
+    "itemDescription": "简介：能辅助主人是我的荣幸~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
     "describeValues": [
       8
     ]
@@ -2147,7 +2148,7 @@
     "maxLevel": 1,
     "itemName": "天使无人机",
     "goldPerSec": 16,
-    "itemDescription": "简介：主人的眼光太棒了，我们一起击败猛鬼吧~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
+    "itemDescription": "简介：主人的眼光太棒了~\n属性：每秒生产{0}金币\n获取：挑战模式排行榜奖励\n\n",
     "describeValues": [
       16
     ]

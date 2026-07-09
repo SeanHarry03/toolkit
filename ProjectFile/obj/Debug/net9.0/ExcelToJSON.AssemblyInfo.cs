@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExcelToJSON")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bd7d988783709255fcb4faaa108259fc7b31889")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+734b6844f08a15591fad9760afbf996b76875a48")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExcelToJSON")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExcelToJSON")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
