@@ -1,0 +1,478 @@
+﻿{
+  "ExcludeSheets": [
+    "任务列表",
+    "文本配置",
+    "动效需求",
+    "人扮演鬼模式",
+    "整体"
+  ],
+  "ExcelFiles": [
+    "策划案.xlsx"
+  ],
+  "FileRules": {
+    "策划案.xlsx": {
+      "Sheets": {
+        "道具配置表": {
+          "Enabled": true,
+          "RowStart": 18,
+          "RowEnd": 155,
+          "ColStart": "B",
+          "ColEnd": "AE",
+          "ExcludeCols": [
+            "G"
+          ],
+          "CustomHeaders": {
+            "B": "id",
+            "C": "itemType",
+            "D": "itemLevel",
+            "E": "maxLevel",
+            "F": "itemName",
+            "H": "itemHp",
+            "I": "upgradeGold",
+            "J": "upgradeEnergy",
+            "K": "upgradeRequire",
+            "L": "removeGold",
+            "M": "removeEnergy",
+            "N": "attack",
+            "O": "attackRange",
+            "P": "buildGoldCost",
+            "Q": "buildEnergyCost",
+            "R": "goldPerSec",
+            "S": "energyPerSec",
+            "T": "itemDescription",
+            "U": "describeValues",
+            "V": "triggerCondition",
+            "W": "triggerProbability",
+            "X": "maxCount",
+            "Y": "activeDuration",
+            "Z": "skillCd",
+            "AA": "skillEffect",
+            "AB": "skillValue",
+            "AC": "skillDuration",
+            "AD": "useOnce",
+            "AE": "spiritKillExp"
+          },
+          "KeyColumn": "id",
+          "ArrayFields": [
+            "describeValues"
+          ],
+          "RemoveEmpty": true,
+          "OutputName": "TowerConfig.json",
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {}
+        },
+        "猛鬼配置表": {
+          "Enabled": true,
+          "RowStart": 15,
+          "RowEnd": 270,
+          "ColStart": "D",
+          "ColEnd": "N",
+          "ExcludeCols": [],
+          "CustomHeaders": {
+            "D": "spiritType",
+            "E": "spiritName",
+            "F": "level",
+            "G": "levelUpExp",
+            "H": "expPerSec",
+            "I": "hp",
+            "J": "attack",
+            "K": "moveSpeed",
+            "L": "attackSpeed",
+            "M": "damageToExpRate",
+            "N": "skillList"
+          },
+          "KeyColumn": "spiritId",
+          "ArrayFields": [
+            "skillList"
+          ],
+          "RemoveEmpty": true,
+          "OutputName": "EnemyConfig.json",
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {
+            "spiritId": "spiritType * 100 \u002B level"
+          },
+          "SubTables": {}
+        },
+        "猛鬼技能效果": {
+          "Enabled": true,
+          "RowStart": 19,
+          "RowEnd": 109,
+          "ColStart": "E",
+          "ColEnd": "N",
+          "ExcludeCols": [],
+          "CustomHeaders": {
+            "E": "skillId",
+            "F": "skillType",
+            "G": "skillLevel",
+            "H": "skillName",
+            "I": "skillProbability",
+            "J": "skillDuration",
+            "K": "skillCd",
+            "L": "skillEffect",
+            "M": "skillValue",
+            "N": "triggerCondition"
+          },
+          "KeyColumn": "skillId",
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "EnemySkillConfig.json",
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {}
+        },
+        "默认道具和祈福签配置": {
+          "Enabled": true,
+          "ExcludeCols": [],
+          "CustomHeaders": {},
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {
+            "601": {
+              "RowStart": 50,
+              "RowEnd": 80,
+              "ColStart": "C",
+              "ColEnd": "D",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "C": "id",
+                "D": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置经典.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "701": {
+              "RowStart": 50,
+              "RowEnd": 81,
+              "ColStart": "G",
+              "ColEnd": "H",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "G": "id",
+                "H": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置经典.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "801": {
+              "RowStart": 50,
+              "RowEnd": 90,
+              "ColStart": "L",
+              "ColEnd": "M",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "L": "id",
+                "M": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置经典.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "6011": {
+              "RowStart": 50,
+              "RowEnd": 73,
+              "ColStart": "T",
+              "ColEnd": "U",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "T": "id",
+                "U": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置挑战.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "7011": {
+              "RowStart": 50,
+              "RowEnd": 81,
+              "ColStart": "X",
+              "ColEnd": "Y",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "X": "id",
+                "Y": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置挑战.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "8011": {
+              "RowStart": 50,
+              "RowEnd": 83,
+              "ColStart": "AC",
+              "ColEnd": "AD",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "AC": "id",
+                "AD": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "默认道具和祈福签配置挑战.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            },
+            "房间可以拾取的道具": {
+              "RowStart": 25,
+              "RowEnd": 34,
+              "ColStart": "T",
+              "ColEnd": "U",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "T": "id",
+                "U": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "房间可以拾取的道具.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "RowIndexObject",
+              "ComputedColumns": {},
+              "WrapWithSubKey": false
+            },
+            "经典模式房间默认": {
+              "RowStart": 25,
+              "RowEnd": 36,
+              "ColStart": "J",
+              "ColEnd": "K",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "J": "id",
+                "K": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "经典模式房间默认道具.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "RowIndexObject",
+              "ComputedColumns": {},
+              "WrapWithSubKey": false
+            },
+            "挑战模式房间默认道具": {
+              "RowStart": 25,
+              "RowEnd": 35,
+              "ColStart": "AA",
+              "ColEnd": "AB",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "AA": "id",
+                "AB": "probability"
+              },
+              "ArrayFields": [],
+              "RemoveEmpty": true,
+              "OutputName": "挑战模式房间默认道具.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "RowIndexObject",
+              "ComputedColumns": {},
+              "WrapWithSubKey": false
+            }
+          }
+        },
+        "挑战模式": {
+          "Enabled": true,
+          "ExcludeCols": [],
+          "CustomHeaders": {},
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "LevelConfig.json",
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {
+            "LevelConfig": {
+              "RowStart": 14,
+              "RowEnd": 28,
+              "ColStart": "H",
+              "ColEnd": "M",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "H": "level",
+                "I": "hpFactor",
+                "J": "attackFactor",
+                "K": "moveFactor",
+                "L": "attackSpeed",
+                "M": "waveList"
+              },
+              "ArrayFields": [
+                "waveList"
+              ],
+              "RemoveEmpty": true,
+              "OutputName": "LevelConfig.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "RowIndexObject",
+              "ComputedColumns": {},
+              "WrapWithSubKey": false
+            },
+            "WaveConfig": {
+              "RowStart": 38,
+              "RowEnd": 89,
+              "ColStart": "H",
+              "ColEnd": "I",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "H": "waveId",
+                "I": "spiritIdList"
+              },
+              "ArrayFields": [
+                "spiritIdList"
+              ],
+              "RemoveEmpty": true,
+              "OutputName": "WaveConfig.json",
+              "RoundFields": [],
+              "NoKeyOutputMode": "RowIndexObject",
+              "ComputedColumns": {},
+              "WrapWithSubKey": false
+            }
+          }
+        },
+        "称号_商城_结算": {
+          "Enabled": true,
+          "ExcludeCols": [],
+          "CustomHeaders": {},
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "LobbyConfig.json",
+          "RoundFields": [],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {
+            "shop_config": {
+              "RowStart": 43,
+              "RowEnd": 58,
+              "ColStart": "E",
+              "ColEnd": "G",
+              "ExcludeCols": [],
+              "CustomHeaders": {
+                "E": "item_id",
+                "F": "type",
+                "G": "price"
+              },
+              "ArrayFields": [
+                "spiritIdList"
+              ],
+              "RemoveEmpty": true,
+              "RoundFields": [
+                "*"
+              ],
+              "NoKeyOutputMode": "Array",
+              "ComputedColumns": {},
+              "WrapWithSubKey": true
+            }
+          }
+        },
+        "送礼-银宝箱": {
+          "Enabled": true,
+          "RowStart": 3,
+          "RowEnd": 21,
+          "ColStart": "C",
+          "ColEnd": "H",
+          "ExcludeCols": [],
+          "CustomHeaders": {
+            "E": "id",
+            "D": "item_type",
+            "H": "item_count",
+            "F": "duration",
+            "C": "Clientprobability",
+            "G": "Serverprobability"
+          },
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "送礼-银宝箱.json",
+          "RoundFields": [],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {}
+        },
+        "送礼-金宝箱": {
+          "Enabled": true,
+          "RowStart": 3,
+          "RowEnd": 21,
+          "ColStart": "C",
+          "ColEnd": "H",
+          "ExcludeCols": [],
+          "CustomHeaders": {
+            "E": "id",
+            "D": "item_type",
+            "H": "item_count",
+            "F": "duration",
+            "C": "Clientprobability",
+            "G": "Serverprobability"
+          },
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "送礼-金宝箱.json",
+          "RoundFields": [],
+          "NoKeyOutputMode": "Array",
+          "ComputedColumns": {},
+          "SubTables": {}
+        },
+        "人扮鬼-鬼增幅配置": {
+          "Enabled": true,
+          "RowStart": 3,
+          "RowEnd": 14,
+          "ColStart": "B",
+          "ColEnd": "G",
+          "ExcludeCols": [],
+          "CustomHeaders": {
+            "B": "id",
+            "C": "type",
+            "D": "rarity",
+            "E": "num",
+            "F": "name",
+            "G": "description"
+          },
+          "KeyColumn": "id",
+          "ArrayFields": [],
+          "RemoveEmpty": true,
+          "OutputName": "spirit_boost_config.json",
+          "RoundFields": [
+            "*"
+          ],
+          "NoKeyOutputMode": "RowIndexObject",
+          "ComputedColumns": {},
+          "SubTables": {}
+        }
+      }
+    }
+  }
+}

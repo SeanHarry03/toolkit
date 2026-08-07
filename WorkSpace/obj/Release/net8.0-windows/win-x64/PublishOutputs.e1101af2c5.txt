@@ -1,0 +1,13 @@
+d:\CocosProject\ExcelToJson\publish\ExcelToJson.exe
+d:\CocosProject\ExcelToJson\publish\ExcelToJson.dll
+d:\CocosProject\ExcelToJson\publish\ExcelToJson.deps.json
+d:\CocosProject\ExcelToJson\publish\ExcelToJson.runtimeconfig.json
+d:\CocosProject\ExcelToJson\publish\ExcelToJson.pdb
+d:\CocosProject\ExcelToJson\publish\ClosedXML.dll
+d:\CocosProject\ExcelToJson\publish\ClosedXML.Parser.dll
+d:\CocosProject\ExcelToJson\publish\DocumentFormat.OpenXml.dll
+d:\CocosProject\ExcelToJson\publish\DocumentFormat.OpenXml.Framework.dll
+d:\CocosProject\ExcelToJson\publish\ExcelNumberFormat.dll
+d:\CocosProject\ExcelToJson\publish\RBush.dll
+d:\CocosProject\ExcelToJson\publish\SixLabors.Fonts.dll
+d:\CocosProject\ExcelToJson\publish\System.IO.Packaging.dll
