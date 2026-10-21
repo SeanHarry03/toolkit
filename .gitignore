@@ -1,3 +1,30 @@
+# Local input workbook and conversion results
 策划案.xlsx
-
 output/
+
+# .NET build and intermediate output
+[Bb]in/
+[Oo]bj/
+
+# Published application and generated distribution archives
+/WorkSpace/publish/
+/WorkSpace/publish.zip
+/WorkSpace/publish-*.zip
+
+# Rider / Visual Studio machine-specific state
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.iml
+*.pubxml.user
+
+# Temporary UI verification files
+/WorkSpace/_verify/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
