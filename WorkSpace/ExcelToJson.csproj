@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon></ApplicationIcon>
+        <AssemblyName>ExcelToJson</AssemblyName>
+        <RootNamespace>ExcelToJson</RootNamespace>
+        <Version>1.0.0</Version>
+        <Product>ExcelToJson</Product>
+        <Description>Excel 转 JSON 配置工具</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ClosedXML" Version="0.104.2" />
+    </ItemGroup>
+
+    <!-- 原控制台入口已迁移到 ExcelConverter.cs，避免与 WPF 入口冲突 -->
+    <ItemGroup>
+        <Compile Remove="Program.cs" />
+        <None Include="Program.cs" />
+        <Compile Remove="_verify\**" />
+        <None Remove="_verify\**" />
+        <EmbeddedResource Remove="_verify\**" />
+        <Page Remove="_verify\**" />
+    </ItemGroup>
+
+</Project>

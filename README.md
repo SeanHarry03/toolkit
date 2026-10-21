@@ -1,12 +1,16 @@
 # Excel 转换为json
 
+# 代码
+source/ 基础的源码
+
+WorkSpace/ 可执行的桌面程序，工程
+
+
 # 运行
 
-打开 ExcelToJSON.sln运行
+打开 WorkSpace/publish/ExcelToJson.exe 运行
 
-需要转换的excel 文件和 output 同级
-
-## 自定义转换规则
+## 源码字段
 
 在路径的所有 .xlsx 需要跳过不转换的子表
 
