@@ -37,11 +37,8 @@ public partial class MainWindow : Window
         SheetList.ItemsSource = _sheetItems;
         SubTableList.ItemsSource = _subKeys;
 
-        var excelDir = ExcelConverter.ResolveExcelDirectory();
-        ExcelDirBox.Text = excelDir;
-        OutputDirBox.Text = Path.Combine(excelDir, "output");
-
         _config = RulesStore.LoadOrCreate();
+        LoadDirectories();
         RefreshFileCombo();
         AppendLog($"已加载规则: {RulesStore.DefaultPath}");
         AppendLog("勾选 Sheet、编辑规则后可「保存规则」或直接「开始转换」。");
@@ -427,6 +424,7 @@ public partial class MainWindow : Window
     {
         CommitCurrentEditors();
         SyncEnabledFromList();
+        SaveDirectories();
         RulesStore.Save(_config);
         AppendLog($"规则已保存: {RulesStore.DefaultPath}");
         StatusText.Text = "规则已保存";
@@ -439,6 +437,7 @@ public partial class MainWindow : Window
             return;
 
         _config = RulesStore.ResetToDefault();
+        LoadDirectories();
         RefreshFileCombo();
         AppendLog("已恢复默认规则。");
         StatusText.Text = "已恢复默认";
@@ -465,6 +464,7 @@ public partial class MainWindow : Window
             return;
         }
 
+        SaveDirectories();
         RulesStore.Save(_config);
 
         _isRunning = true;
@@ -510,6 +510,23 @@ public partial class MainWindow : Window
     {
         foreach (var item in _sheetItems)
             item.Rule.Enabled = item.Enabled;
+    }
+
+    private void LoadDirectories()
+    {
+        var excelDir = string.IsNullOrWhiteSpace(_config.ExcelDirectory)
+            ? ExcelConverter.ResolveExcelDirectory()
+            : _config.ExcelDirectory!;
+        ExcelDirBox.Text = excelDir;
+        OutputDirBox.Text = string.IsNullOrWhiteSpace(_config.OutputDirectory)
+            ? Path.Combine(excelDir, "output")
+            : _config.OutputDirectory!;
+    }
+
+    private void SaveDirectories()
+    {
+        _config.ExcelDirectory = ExcelDirBox.Text.Trim();
+        _config.OutputDirectory = OutputDirBox.Text.Trim();
     }
 
     private void AppendLog(string message)

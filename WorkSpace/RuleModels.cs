@@ -5,6 +5,8 @@ namespace ExcelToJson;
 /// <summary>完整转换配置（持久化为 rules.json）</summary>
 public sealed class ConversionConfig
 {
+    public string? ExcelDirectory { get; set; }
+    public string? OutputDirectory { get; set; }
     public List<string> ExcludeSheets { get; set; } = [];
     public List<string> ExcelFiles { get; set; } = [];
     public Dictionary<string, FileRuleDto> FileRules { get; set; } = new(StringComparer.Ordinal);
