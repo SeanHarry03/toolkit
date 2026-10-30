@@ -121,6 +121,9 @@ public static class ExcelConverter
                         continue;
                     }
 
+                    if (config.AutoDetectRows)
+                        UpdateRowEnds(worksheet, sheetDto, Log);
+
                     SheetRule? sheetRule = sheetDto.HasCustomRegion
                         ? RuleMapper.ToSheetRule(sheetDto, Log)
                         : null;
@@ -299,10 +302,11 @@ public static class ExcelConverter
                         // ======== 默认通用逻辑：第一行是表头 ========
                         finalRule = defaultRule;
 
-                        var lastRow = worksheet.LastRowUsed()?.RowNumber() ?? 0;
+                        var lastRow = sheetDto.RowEnd ?? worksheet.LastRowUsed()?.RowNumber() ?? 0;
                         var lastCol = worksheet.LastColumnUsed()?.ColumnNumber() ?? 0;
 
-                        if (lastRow < 2) continue; // 至少需要表头 + 一行数据
+                        // 自动扫描得到空区域时仍写出空数组，清除上次导出的旧数据。
+                        if (lastRow < 2 && !config.AutoDetectRows) continue;
 
                         // 读取第一行作为表头
                         var headerRow = worksheet.Row(1);
@@ -388,6 +392,63 @@ public static class ExcelConverter
             result.Error = ex.ToString();
             return result;
         }
+    }
+
+    /// <summary>扫描已启用工作表的实际结束行；扫描和转换共用同一规则。</summary>
+    public static void UpdateRowEnds(IXLWorksheet worksheet, SheetRuleDto sheet, Action<string>? log = null)
+    {
+        if (!sheet.Enabled) return;
+
+        if (sheet.SubTables.Count > 0)
+        {
+            foreach (var (key, sub) in sheet.SubTables)
+            {
+                var rule = RuleMapper.ToSubTableRule(sub);
+                sub.RowEnd = FindDataEndRow(worksheet, sub.RowStart ?? 1, rule.ColRange, rule.ExcludeCols);
+                log?.Invoke($"  [自动行数] {worksheet.Name}/{key}: 结束行 {sub.RowEnd}");
+            }
+        }
+        else
+        {
+            bool useHeaders = !sheet.HasCustomRegion;
+            var rule = RuleMapper.ToSheetRule(sheet)!;
+            int startRow = useHeaders ? 2 : sheet.RowStart ?? 1;
+            sheet.RowEnd = FindDataEndRow(worksheet, startRow, rule.ColRange, rule.ExcludeCols);
+            sheet.UseFirstRowAsHeaders = useHeaders;
+            log?.Invoke($"  [自动行数] {worksheet.Name}: 结束行 {sheet.RowEnd}");
+        }
+    }
+
+    private static int FindDataEndRow(IXLWorksheet worksheet, int startRow,
+        ColRangeDef? colRange, List<string> excludeCols)
+    {
+        int startCol = colRange.HasValue ? ColLetterToIndex(colRange.Value.StartCol) + 1 : 1;
+        int endCol = colRange.HasValue ? ColLetterToIndex(colRange.Value.EndCol) + 1
+            : worksheet.LastColumnUsed()?.ColumnNumber() ?? 1;
+        if (startRow < 1 || startRow > 1048576 || startCol < 1 || endCol > 16384 || startCol > endCol)
+            throw new InvalidOperationException($"{worksheet.Name}: 起始行或列范围无效。");
+
+        var excluded = new HashSet<string>(excludeCols, StringComparer.OrdinalIgnoreCase);
+        var columns = Enumerable.Range(startCol, endCol - startCol + 1)
+            .Where(col => !excluded.Contains(IndexToColLetter(col - 1))).ToArray();
+        int lastRow = worksheet.LastRowUsed()?.RowNumber() ?? 0;
+        int endRow = startRow - 1; // 起始行即为空时，表示该区域没有数据。
+        for (int row = startRow; row <= lastRow; row++)
+        {
+            bool hasData = false;
+            foreach (int col in columns)
+            {
+                var value = worksheet.Cell(row, col).Value;
+                if (!value.IsBlank && !(value.IsText && string.IsNullOrWhiteSpace(value.GetText())))
+                {
+                    hasData = true;
+                    break;
+                }
+            }
+            if (!hasData) break;
+            endRow = row;
+        }
+        return endRow;
     }
 
     private static int ColLetterToIndex(string col)

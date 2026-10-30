@@ -401,23 +401,44 @@ public partial class MainWindow : Window
         }
 
         CommitCurrentEditors();
+        SyncEnabledFromList();
+        SaveDirectories();
         var fileRule = _config.FileRules[_currentFile];
         var added = 0;
-        using var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-        using var wb = new XLWorkbook(fs);
-        foreach (var ws in wb.Worksheets)
+        var selectedSheet = (SheetList.SelectedItem as SheetListItem)?.Name;
+        try
         {
-            var name = ws.Name;
-            if (_config.ExcludeSheets.Contains(name))
-                continue;
-            if (fileRule.Sheets.ContainsKey(name))
-                continue;
-            fileRule.Sheets[name] = new SheetRuleDto { Enabled = true };
-            added++;
-        }
+            using var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using var wb = new XLWorkbook(fs);
+            foreach (var ws in wb.Worksheets)
+            {
+                var name = ws.Name;
+                if (_config.ExcludeSheets.Contains(name))
+                    continue;
+                if (!fileRule.Sheets.TryGetValue(name, out var sheet))
+                {
+                    sheet = new SheetRuleDto { Enabled = true };
+                    fileRule.Sheets[name] = sheet;
+                    added++;
+                }
+                if (_config.AutoDetectRows)
+                    ExcelConverter.UpdateRowEnds(ws, sheet, AppendLog);
+            }
 
-        LoadSheetsForSelectedFile();
-        AppendLog($"扫描完成，新增 {added} 个 Sheet。");
+            // 先刷新编辑框，避免切换列表时将旧行数重新提交到规则。
+            RefreshDetectedRowEnds();
+            LoadSheetsForSelectedFile();
+            SheetList.SelectedItem = _sheetItems.FirstOrDefault(item => item.Name == selectedSheet);
+            RulesStore.Save(_config);
+            AppendLog($"扫描完成，新增 {added} 个 Sheet，规则已保存: {RulesStore.DefaultPath}");
+            StatusText.Text = "扫描完成，规则已保存";
+        }
+        catch (Exception ex)
+        {
+            RefreshDetectedRowEnds();
+            StatusText.Text = "扫描或保存失败";
+            AppendLog($"扫描或保存失败: {ex.Message}");
+        }
     }
 
     private void SaveRules_Click(object sender, RoutedEventArgs e)
@@ -479,6 +500,21 @@ public partial class MainWindow : Window
         try
         {
             var result = await Task.Run(() => ExcelConverter.Run(excelDir, outputDir, config, progress));
+            RefreshDetectedRowEnds();
+            if (result.Success)
+            {
+                try
+                {
+                    RulesStore.Save(config);
+                    AppendLog($"最新行数和规则已保存: {RulesStore.DefaultPath}");
+                }
+                catch (Exception ex)
+                {
+                    StatusText.Text = "转换完成，规则保存失败";
+                    AppendLog($"JSON 已生成，但规则保存失败: {ex.Message}");
+                    return;
+                }
+            }
             StatusText.Text = result.Success ? "转换完成" : "转换失败";
             if (!result.Success && !string.IsNullOrEmpty(result.Error))
                 AppendLog(result.Error);
@@ -514,6 +550,7 @@ public partial class MainWindow : Window
 
     private void LoadDirectories()
     {
+        AutoDetectRowsBox.IsChecked = _config.AutoDetectRows;
         var excelDir = string.IsNullOrWhiteSpace(_config.ExcelDirectory)
             ? ExcelConverter.ResolveExcelDirectory()
             : _config.ExcelDirectory!;
@@ -525,8 +562,17 @@ public partial class MainWindow : Window
 
     private void SaveDirectories()
     {
+        _config.AutoDetectRows = AutoDetectRowsBox.IsChecked == true;
         _config.ExcelDirectory = ExcelDirBox.Text.Trim();
         _config.OutputDirectory = OutputDirBox.Text.Trim();
+    }
+
+    private void RefreshDetectedRowEnds()
+    {
+        if (_currentSheet != null)
+            RowEndBox.Text = _currentSheet.RowEnd?.ToString() ?? "";
+        if (_currentSub != null)
+            SubRowEndBox.Text = _currentSub.RowEnd?.ToString() ?? "";
     }
 
     private void AppendLog(string message)

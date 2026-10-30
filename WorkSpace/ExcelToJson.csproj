@@ -21,6 +21,9 @@
     <!-- 原控制台入口已迁移到 ExcelConverter.cs，避免与 WPF 入口冲突 -->
     <ItemGroup>
         <Compile Remove="Program.cs" />
+        <Compile Remove="codex\**" />
+        <EmbeddedResource Remove="codex\**" />
+        <Page Remove="codex\**" />
         <None Include="Program.cs" />
         <Compile Remove="_verify\**" />
         <None Remove="_verify\**" />

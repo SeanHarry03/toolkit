@@ -5,6 +5,8 @@ namespace ExcelToJson;
 /// <summary>完整转换配置（持久化为 rules.json）</summary>
 public sealed class ConversionConfig
 {
+    /// <summary>忽略旧结束行，向下读取到当前区域的第一个空行。</summary>
+    public bool AutoDetectRows { get; set; } = true;
     public string? ExcelDirectory { get; set; }
     public string? OutputDirectory { get; set; }
     public List<string> ExcludeSheets { get; set; } = [];
@@ -25,6 +27,8 @@ public sealed class SheetRuleDto
 
     public int? RowStart { get; set; }
     public int? RowEnd { get; set; }
+    /// <summary>普通工作表回写结束行后仍使用首行表头；其他自定义区域设置优先。</summary>
+    public bool UseFirstRowAsHeaders { get; set; }
     public string? ColStart { get; set; }
     public string? ColEnd { get; set; }
     public List<string> ExcludeCols { get; set; } = [];
@@ -43,7 +47,7 @@ public sealed class SheetRuleDto
 
     [JsonIgnore]
     public bool HasCustomRegion =>
-        RowStart.HasValue || RowEnd.HasValue ||
+        RowStart.HasValue || (RowEnd.HasValue && !UseFirstRowAsHeaders) ||
         !string.IsNullOrWhiteSpace(ColStart) || !string.IsNullOrWhiteSpace(ColEnd) ||
         CustomHeaders.Count > 0 || ComputedColumns.Count > 0 || SubTables.Count > 0 ||
         !string.IsNullOrWhiteSpace(OutputName) || !string.IsNullOrWhiteSpace(KeyColumn) ||
