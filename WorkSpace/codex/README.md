@@ -1,5 +1,7 @@
 # 自动行数扫描验证
 
+SVN 自动更新和 Cocos 同步功能说明见 [SVN同步使用说明.md](SVN同步使用说明.md)。打开 `publish\ExcelToJson.exe` 后点击“一键更新并同步”。
+
 在项目根目录运行（本机 dotnet 位于 `C:\Users\25330\.dotnet\dotnet.exe`）：
 
 ```powershell

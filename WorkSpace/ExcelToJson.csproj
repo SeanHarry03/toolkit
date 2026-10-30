@@ -16,6 +16,8 @@
 
     <ItemGroup>
         <PackageReference Include="ClosedXML" Version="0.104.2" />
+        <Content Include="codex\tools\svn\**\*" Link="tools\svn\%(RecursiveDir)%(Filename)%(Extension)"
+                 CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     </ItemGroup>
 
     <!-- 原控制台入口已迁移到 ExcelConverter.cs，避免与 WPF 入口冲突 -->

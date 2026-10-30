@@ -14,6 +14,7 @@ public partial class MainWindow : Window
 {
     private ConversionConfig _config = null!;
     private bool _isRunning;
+    private CancellationTokenSource? _syncCancellation;
     private bool _loadingUi;
     private string? _currentFile;
     private SheetRuleDto? _currentSheet;
@@ -96,7 +97,10 @@ public partial class MainWindow : Window
         if (_loadingUi) return;
         CommitCurrentEditors();
         if (SheetList.SelectedItem is SheetListItem item)
+        {
             LoadSheetEditor(item.Rule, item.Name);
+            EditorPage.IsSelected = true;
+        }
         else
             ClearRuleEditor();
     }
@@ -109,6 +113,7 @@ public partial class MainWindow : Window
         RuleTitle.Text = $"规则: {name}";
 
         OutputNameBox.Text = sheet.OutputName ?? "";
+        CopyToTargetBox.IsChecked = sheet.CopyToTarget;
         KeyColumnBox.Text = sheet.KeyColumn ?? "";
         RowStartBox.Text = sheet.RowStart?.ToString() ?? "";
         RowEndBox.Text = sheet.RowEnd?.ToString() ?? "";
@@ -139,6 +144,7 @@ public partial class MainWindow : Window
     private void ClearRuleEditor()
     {
         _currentSheet = null;
+        CopyToTargetBox.IsChecked = false;
         RuleEditorPanel.IsEnabled = false;
         RuleTitle.Text = "选择左侧 Sheet 以编辑规则";
         _headers.Clear();
@@ -227,6 +233,7 @@ public partial class MainWindow : Window
         if (_currentSheet == null || _loadingUi) return;
 
         _currentSheet.OutputName = NullIfEmpty(OutputNameBox.Text);
+        _currentSheet.CopyToTarget = CopyToTargetBox.IsChecked == true;
         _currentSheet.KeyColumn = NullIfEmpty(KeyColumnBox.Text);
         _currentSheet.RowStart = ParseInt(RowStartBox.Text);
         _currentSheet.RowEnd = ParseInt(RowEndBox.Text);
@@ -517,12 +524,16 @@ public partial class MainWindow : Window
             }
             StatusText.Text = result.Success ? "转换完成" : "转换失败";
             if (!result.Success && !string.IsNullOrEmpty(result.Error))
+            {
                 AppendLog(result.Error);
+                LogPage.IsSelected = true;
+            }
         }
         catch (Exception ex)
         {
             StatusText.Text = "转换失败";
             AppendLog($"未处理异常: {ex}");
+            LogPage.IsSelected = true;
             MessageBox.Show(ex.Message, "转换失败", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         finally
@@ -530,6 +541,94 @@ public partial class MainWindow : Window
             _isRunning = false;
             ConvertButton.IsEnabled = true;
         }
+    }
+
+    private async void Sync_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRunning) return;
+        _isRunning = true;
+        ConvertButton.IsEnabled = false;
+        CancelSyncButton.Visibility = Visibility.Visible;
+        CancelSyncButton.IsEnabled = true;
+        _syncCancellation = new CancellationTokenSource();
+        try
+        {
+            CommitCurrentEditors();
+            SyncEnabledFromList();
+            SaveDirectories();
+            RulesStore.Save(_config);
+            AppendLog("");
+            AppendLog("======== 开始更新并同步 ========");
+            StatusText.Text = "更新并同步中...";
+            var progress = new Progress<string>(message =>
+            {
+                AppendLog(message);
+                if (message.StartsWith("[")) StatusText.Text = message;
+            });
+            var token = _syncCancellation.Token;
+            var result = await Task.Run(() => AutomationRunner.RunAsync(_config, progress, token));
+            RefreshDetectedRowEnds();
+            StatusText.Text = result.FileCount == 0 ? "生成完成，未复制到 Cocos" : $"同步完成：复制 {result.FileCount} 个 JSON";
+            if (result.Warnings.Count > 0) StatusText.Text += $"，{result.Warnings.Count} 项警告（见日志）";
+            try { RulesStore.Save(_config); }
+            catch (Exception ex)
+            {
+                StatusText.Text = "同步已完成，规则保存失败";
+                AppendLog("文件已同步，但最新行数未保存：" + ex.Message);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            StatusText.Text = "同步已停止";
+            AppendLog("同步已停止，未执行后续复制。若 SVN 提示工作副本被锁定，请先在 TortoiseSVN 中执行清理。");
+        }
+        catch (Exception ex)
+        {
+            StatusText.Text = "同步失败，请查看日志";
+            AppendLog(ex.Message);
+            LogPage.IsSelected = true;
+        }
+        finally
+        {
+            _syncCancellation.Dispose();
+            _syncCancellation = null;
+            _isRunning = false;
+            ConvertButton.IsEnabled = true;
+            CancelSyncButton.Visibility = Visibility.Collapsed;
+        }
+    }
+
+    private void CancelSync_Click(object sender, RoutedEventArgs e)
+    {
+        _syncCancellation?.Cancel();
+        CancelSyncButton.IsEnabled = false;
+        StatusText.Text = "正在停止，必要时回滚复制...";
+    }
+
+    protected override void OnClosing(CancelEventArgs e)
+    {
+        if (_isRunning)
+        {
+            e.Cancel = true;
+            StatusText.Text = "请等待操作完成，或先点击停止。";
+        }
+        base.OnClosing(e);
+    }
+
+    private void BrowseSvnDir_Click(object sender, RoutedEventArgs e) => BrowseSyncDirectory(SvnDirBox);
+    private void BrowseTargetDir_Click(object sender, RoutedEventArgs e) => BrowseSyncDirectory(TargetDirBox);
+
+    private static void BrowseSyncDirectory(TextBox box)
+    {
+        var dialog = new OpenFolderDialog();
+        if (Directory.Exists(box.Text)) dialog.InitialDirectory = box.Text;
+        if (dialog.ShowDialog() == true) box.Text = dialog.FolderName;
+    }
+
+    private void BrowseSvnExe_Click(object sender, RoutedEventArgs e)
+    {
+        var dialog = new OpenFileDialog { Filter = "SVN 程序 (svn.exe)|svn.exe", CheckFileExists = true };
+        if (dialog.ShowDialog() == true) SvnExeBox.Text = dialog.FileName;
     }
 
     private void OpenOutput_Click(object sender, RoutedEventArgs e)
@@ -541,6 +640,8 @@ public partial class MainWindow : Window
     }
 
     private void ClearLog_Click(object sender, RoutedEventArgs e) => LogBox.Clear();
+
+    private void ShowLog_Click(object sender, RoutedEventArgs e) => LogPage.IsSelected = true;
 
     private void SyncEnabledFromList()
     {
@@ -558,6 +659,9 @@ public partial class MainWindow : Window
         OutputDirBox.Text = string.IsNullOrWhiteSpace(_config.OutputDirectory)
             ? Path.Combine(excelDir, "output")
             : _config.OutputDirectory!;
+        SvnDirBox.Text = string.IsNullOrWhiteSpace(_config.SvnDirectory) ? excelDir : _config.SvnDirectory;
+        TargetDirBox.Text = _config.TargetDirectory ?? @"D:\CocosProject\evil-spirit\assets\resources\GameConfig\V1";
+        SvnExeBox.Text = _config.SvnExecutable ?? "";
     }
 
     private void SaveDirectories()
@@ -565,6 +669,9 @@ public partial class MainWindow : Window
         _config.AutoDetectRows = AutoDetectRowsBox.IsChecked == true;
         _config.ExcelDirectory = ExcelDirBox.Text.Trim();
         _config.OutputDirectory = OutputDirBox.Text.Trim();
+        _config.SvnDirectory = SvnDirBox.Text.Trim();
+        _config.TargetDirectory = TargetDirBox.Text.Trim();
+        _config.SvnExecutable = NullIfEmpty(SvnExeBox.Text);
     }
 
     private void RefreshDetectedRowEnds()

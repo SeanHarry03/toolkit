@@ -9,6 +9,9 @@ public sealed class ConversionConfig
     public bool AutoDetectRows { get; set; } = true;
     public string? ExcelDirectory { get; set; }
     public string? OutputDirectory { get; set; }
+    public string? SvnDirectory { get; set; }
+    public string? TargetDirectory { get; set; }
+    public string? SvnExecutable { get; set; }
     public List<string> ExcludeSheets { get; set; } = [];
     public List<string> ExcelFiles { get; set; } = [];
     public Dictionary<string, FileRuleDto> FileRules { get; set; } = new(StringComparer.Ordinal);
@@ -24,6 +27,9 @@ public sealed class SheetRuleDto
 {
     /// <summary>是否导出该 Sheet</summary>
     public bool Enabled { get; set; } = true;
+
+    /// <summary>同步时将此工作表生成的 JSON 复制到目标目录；旧规则及新表默认关闭。</summary>
+    public bool CopyToTarget { get; set; }
 
     public int? RowStart { get; set; }
     public int? RowEnd { get; set; }

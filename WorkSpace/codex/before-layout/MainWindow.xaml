@@ -1,0 +1,366 @@
+<Window x:Class="ExcelToJson.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Excel → JSON 转换工具" Height="820" Width="1240" MinHeight="820" MinWidth="1000"
+        WindowStartupLocation="CenterScreen" Style="{StaticResource {x:Type Window}}">
+    <Grid Margin="20,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" MinHeight="260"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="138" MinHeight="90"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,0,16">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Excel → JSON" FontSize="24" FontWeight="SemiBold"/>
+                <TextBlock Text="选择工作表，配置规则，批量导出 JSON。" Style="{StaticResource HelpText}" Margin="0,4,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="恢复默认" Click="ResetRules_Click" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsEnabled, ElementName=ConvertButton}" ToolTip="恢复内置规则，将提示确认"/>
+                <Button Content="保存规则" Click="SaveRules_Click" Margin="0,0,12,0"
+                        IsEnabled="{Binding IsEnabled, ElementName=ConvertButton}"/>
+                <Button x:Name="ConvertButton" Content="开始转换" Width="124" Height="38"
+                        Click="Convert_Click"/>
+                <Button x:Name="SyncButton" Content="一键更新并同步" Height="38" Margin="8,0,0,0"
+                        Style="{StaticResource PrimaryButton}" Click="Sync_Click"
+                        IsEnabled="{Binding IsEnabled, ElementName=ConvertButton}"
+                        ToolTip="更新 SVN，按当前规则解析，仅将开启复制的工作表 JSON 覆盖到 Cocos 目录"/>
+                <Button x:Name="CancelSyncButton" Content="停止" Margin="8,0,0,0" Visibility="Collapsed"
+                        Click="CancelSync_Click" ToolTip="停止 SVN；解析期间将在本阶段结束后停止，复制期间将回滚"/>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="1" Background="White" BorderBrush="{StaticResource LineBrush}"
+                BorderThickness="1" CornerRadius="6" Padding="16" Margin="0,0,0,12">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" MaxHeight="190">
+            <Grid IsEnabled="{Binding IsEnabled, ElementName=ConvertButton}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="84"/><ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                <Label Content="Excel 目录" Target="{Binding ElementName=ExcelDirBox}" VerticalAlignment="Center" Padding="0"/>
+                <TextBox x:Name="ExcelDirBox" Grid.Column="1" AutomationProperties.Name="Excel 目录" Margin="0,0,8,0"/>
+                <Button Grid.Column="2" Content="浏览…" Click="BrowseExcelDir_Click" AutomationProperties.Name="浏览 Excel 目录"/>
+                <Label Grid.Row="1" Content="输出目录" Target="{Binding ElementName=OutputDirBox}" VerticalAlignment="Center" Margin="0,8,0,0" Padding="0"/>
+                <TextBox x:Name="OutputDirBox" Grid.Row="1" Grid.Column="1" AutomationProperties.Name="输出目录" Margin="0,8,8,0"/>
+                <Button Grid.Row="1" Grid.Column="2" Content="浏览…" Click="BrowseOutputDir_Click" Margin="0,8,0,0" AutomationProperties.Name="浏览输出目录"/>
+                <Button Grid.Row="1" Grid.Column="3" Content="打开目录" Click="OpenOutput_Click" Margin="8,8,0,0"/>
+                <CheckBox x:Name="AutoDetectRowsBox" Grid.Row="2" Grid.ColumnSpan="4" Margin="0,12,0,0"
+                          Content="自动向下读取，遇到空行停止（所有工作表和子表）"
+                          ToolTip="默认开启。按当前区域未排除的列判断空行；扫描或转换后自动保存结束行。关闭后使用手动结束行。"/>
+                <Expander x:Name="SyncSettingsExpander" Grid.Row="3" Grid.ColumnSpan="4" Header="同步设置 · 更新 SVN → 解析 Excel → 复制 JSON 到 Cocos" Margin="0,12,0,0">
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="84"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                        <Label Content="SVN 目录" Target="{Binding ElementName=SvnDirBox}" Padding="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="SvnDirBox" Grid.Column="1" Margin="0,0,8,0" AutomationProperties.Name="SVN 目录"/>
+                        <Button Grid.Column="2" Content="浏览…" Click="BrowseSvnDir_Click" AutomationProperties.Name="浏览 SVN 目录"/>
+                        <Label Grid.Row="1" Content="Cocos 目录" Target="{Binding ElementName=TargetDirBox}" Padding="0" Margin="0,8,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TargetDirBox" Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" AutomationProperties.Name="Cocos JSON 目录"/>
+                        <Button Grid.Row="1" Grid.Column="2" Content="浏览…" Click="BrowseTargetDir_Click" Margin="0,8,0,0" AutomationProperties.Name="浏览 Cocos JSON 目录"/>
+                        <Label Grid.Row="2" Content="SVN 程序" Target="{Binding ElementName=SvnExeBox}" Padding="0" Margin="0,8,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="SvnExeBox" Grid.Row="2" Grid.Column="1" Margin="0,8,8,0" AutomationProperties.Name="SVN 程序" ToolTip="留空使用工具自带的 svn.exe，也可以指定其他 svn.exe 的完整路径"/>
+                        <Button Grid.Row="2" Grid.Column="2" Content="浏览…" Click="BrowseSvnExe_Click" Margin="0,8,0,0" AutomationProperties.Name="浏览 SVN 程序"/>
+                        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Text="在工作表的「其他配置」中开启复制，才会同步对应 JSON；保留 .meta 和其他文件。备份位于输出目录的 .sync-runs 中。SVN 程序留空使用内置组件。"
+                                   Style="{StaticResource HelpText}" TextWrapping="Wrap" Margin="0,8,0,0"/>
+                    </Grid>
+                </Expander>
+            </Grid>
+            </ScrollViewer>
+        </Border>
+
+        <Grid Grid.Row="2" IsEnabled="{Binding IsEnabled, ElementName=ConvertButton}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="272" MinWidth="250" MaxWidth="400"/>
+                <ColumnDefinition Width="8"/>
+                <ColumnDefinition Width="*" MinWidth="600"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="White" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="6" Padding="12">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top">
+                        <TextBlock Text="工作簿与工作表" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                        <ComboBox x:Name="FileCombo" SelectionChanged="FileCombo_SelectionChanged" AutomationProperties.Name="Excel 文件"/>
+                        <Grid Margin="0,8,0,16">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                            <Button Content="添加文件" Padding="6,4" Click="AddFile_Click" Margin="0,0,6,0"/>
+                            <Button Grid.Column="1" Content="移除文件" Padding="6,4" Click="RemoveFile_Click" Margin="0,0,6,0" ToolTip="仅移除文件配置"/>
+                            <Button Grid.Column="2" Content="扫描" Padding="10,4" Click="ScanSheets_Click" ToolTip="扫描当前 Excel 文件中的工作表；开启自动读取时更新结束行，并保存规则"/>
+                        </Grid>
+                        <TextBlock Text="勾选需要转换的 Sheet" Style="{StaticResource HelpText}" Margin="0,0,0,8"/>
+                    </StackPanel>
+                    <Grid DockPanel.Dock="Bottom" Margin="0,12,0,0">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <Button Content="添加 Sheet" Click="AddSheet_Click" Margin="0,0,8,0"/>
+                        <Button Grid.Column="1" Content="删除 Sheet" Click="RemoveSheet_Click"/>
+                    </Grid>
+                    <Grid>
+                        <ListBox x:Name="SheetList" SelectionChanged="SheetList_SelectionChanged" BorderThickness="0"
+                                 Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 AutomationProperties.Name="工作表列表">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel ToolTip="{Binding Name}">
+                                        <CheckBox DockPanel.Dock="Left" IsChecked="{Binding Enabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  AutomationProperties.Name="{Binding Name, StringFormat=转换 {0}}" Margin="0,0,8,0"/>
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Text="暂无工作表。扫描当前文件，或添加 Sheet。" IsHitTestVisible="False" Margin="8,12">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource HelpText}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers><DataTrigger Binding="{Binding Items.Count, ElementName=SheetList}" Value="0"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <GridSplitter Grid.Column="1" Width="8" HorizontalAlignment="Stretch" Background="Transparent" ShowsPreview="True"/>
+            <Border Grid.Column="2" Background="White" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="6" Padding="20,16">
+                <Grid>
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                    <TextBlock x:Name="RuleTitle" Text="工作表规则" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16" TextTrimming="CharacterEllipsis"/>
+                    <Grid x:Name="RuleEditorPanel" Grid.Row="1" IsEnabled="False">
+                        <TabControl x:Name="RuleTabs" AutomationProperties.Name="规则分类">
+                            <TabControl.Style>
+                                <Style TargetType="TabControl" BasedOn="{StaticResource {x:Type TabControl}}">
+                                    <Style.Triggers><DataTrigger Binding="{Binding IsEnabled, ElementName=RuleEditorPanel}" Value="False"><Setter Property="Visibility" Value="Hidden"/></DataTrigger></Style.Triggers>
+                                </Style>
+                            </TabControl.Style>
+                            <TabItem Header="基本设置">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Foreground="{StaticResource TextBrush}" FontWeight="Normal">
+                                    <StackPanel Margin="0,4,12,0">
+                                        <Grid Margin="0,0,0,8">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="90"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="90"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <TextBlock Text="输出文件" VerticalAlignment="Center"/>
+    <TextBox x:Name="OutputNameBox" AutomationProperties.Name="输出文件" Grid.Column="1" Height="32" Margin="0,0,20,12"/>
+    <TextBlock Grid.Column="2" Text="主键字段" VerticalAlignment="Center"/>
+    <TextBox x:Name="KeyColumnBox" AutomationProperties.Name="主键字段" Grid.Column="3" Height="32" Margin="0,0,0,12"/>
+
+    <TextBlock Grid.Row="1" Text="起始行" VerticalAlignment="Center"/>
+    <TextBox x:Name="RowStartBox" AutomationProperties.Name="起始行" Grid.Row="1" Grid.Column="1" Height="32" Margin="0,0,20,12"/>
+    <TextBlock Grid.Row="1" Grid.Column="2" Text="结束行" VerticalAlignment="Center"/>
+    <TextBox x:Name="RowEndBox" AutomationProperties.Name="结束行" Grid.Row="1" Grid.Column="3" Height="32" Margin="0,0,0,12"
+             IsReadOnly="{Binding IsChecked, ElementName=AutoDetectRowsBox}"
+             ToolTip="自动读取开启时显示上次扫描的结束行；关闭后可手动编辑"/>
+
+    <TextBlock Grid.Row="2" Text="起始列" VerticalAlignment="Center"/>
+    <TextBox x:Name="ColStartBox" AutomationProperties.Name="起始列" Grid.Row="2" Grid.Column="1" Height="32" Margin="0,0,20,12"/>
+    <TextBlock Grid.Row="2" Grid.Column="2" Text="结束列" VerticalAlignment="Center"/>
+    <TextBox x:Name="ColEndBox" AutomationProperties.Name="结束列" Grid.Row="2" Grid.Column="3" Height="32" Margin="0,0,0,12"/>
+
+    <TextBlock Grid.Row="3" Text="跳过列" VerticalAlignment="Center"/>
+    <TextBox x:Name="ExcludeColsBox" AutomationProperties.Name="跳过列" Grid.Row="3" Grid.Column="1" Height="32" Margin="0,0,20,12"
+             ToolTip="逗号分隔，如 G,H"/>
+    <TextBlock Grid.Row="3" Grid.Column="2" Text="数组字段" VerticalAlignment="Center"/>
+    <TextBox x:Name="ArrayFieldsBox" AutomationProperties.Name="数组字段" Grid.Row="3" Grid.Column="3" Height="32" Margin="0,0,0,12"
+             ToolTip="逗号分隔"/>
+
+    <TextBlock Grid.Row="4" Text="取整字段" VerticalAlignment="Center"/>
+    <TextBox x:Name="RoundFieldsBox" AutomationProperties.Name="取整字段" Grid.Row="4" Grid.Column="1" Height="32" Margin="0,0,20,12"
+             ToolTip="* 表示全部，或逗号分隔字段名"/>
+    <TextBlock Grid.Row="4" Grid.Column="2" Text="输出模式" VerticalAlignment="Center"/>
+    <ComboBox x:Name="NoKeyModeBox" AutomationProperties.Name="输出模式" Grid.Row="4" Grid.Column="3" Height="32" Margin="0,0,0,12">
+        <ComboBoxItem Content="数组 Array" Tag="Array"/>
+        <ComboBoxItem Content="序号对象 RowIndexObject" Tag="RowIndexObject"/>
+    </ComboBox>
+
+    <CheckBox x:Name="RemoveEmptyBox" Grid.Row="5" Grid.Column="1"
+              Content="移除空字段" Margin="0,0,0,8" VerticalAlignment="Center"/>
+</Grid>
+                                        <TextBlock Text="自定义字段名和计算表达式，请切换到「字段映射」。" Style="{StaticResource HelpText}" Margin="0,12,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="字段映射">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Foreground="{StaticResource TextBrush}" FontWeight="Normal">
+                                    <StackPanel Margin="0,4,12,0">
+                                        <TextBlock Text="表头映射（列字母 → 字段名）" FontWeight="SemiBold" Margin="0,4,0,4"/>
+<DataGrid x:Name="HeadersGrid" AutomationProperties.Name="表头映射"
+          AutoGenerateColumns="False"
+          CanUserAddRows="True"
+          CanUserDeleteRows="True"
+          Height="200"
+          Margin="0,0,0,8"
+          HeadersVisibility="Column">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="列字母" Binding="{Binding Key, UpdateSourceTrigger=PropertyChanged}" Width="80"/>
+        <DataGridTextColumn Header="字段名" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+    </DataGrid.Columns>
+</DataGrid>
+
+<TextBlock Text="计算列（字段名 → 表达式）" FontWeight="SemiBold" Margin="0,4,0,4"/>
+<TextBlock Text="示例: spiritType * 100 + level" Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,0,0,4"/>
+<DataGrid x:Name="ComputedGrid" AutomationProperties.Name="计算列"
+          AutoGenerateColumns="False"
+          CanUserAddRows="True"
+          CanUserDeleteRows="True"
+          Height="130"
+          Margin="0,0,0,8"
+          HeadersVisibility="Column">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="字段名" Binding="{Binding Key, UpdateSourceTrigger=PropertyChanged}" Width="120"/>
+        <DataGridTextColumn Header="表达式" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+    </DataGrid.Columns>
+</DataGrid>
+                                        <TextBlock Text="在表格末行添加项目，选中行后按 Delete 删除。" Style="{StaticResource HelpText}" Margin="0,8,0,0"/>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="子表规则">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Foreground="{StaticResource TextBrush}" FontWeight="Normal">
+                                    <StackPanel Margin="0,4,12,0"><TextBlock Text="选择子表后编辑其独立的输出规则。" Style="{StaticResource HelpText}" Margin="0,0,0,12"/>
+<DockPanel Margin="0,0,0,12">
+    <StackPanel DockPanel.Dock="Right" Orientation="Vertical" Margin="12,0,0,0">
+        <Button Content="添加子表" Height="32" Padding="8,0" Click="AddSubTable_Click"/>
+        <Button Content="删除子表" Height="32" Padding="8,0" Margin="0,8,0,0" Click="RemoveSubTable_Click"/>
+    </StackPanel>
+    <ListBox x:Name="SubTableList" Height="80" SelectionChanged="SubTableList_SelectionChanged"/>
+</DockPanel>
+
+<Border x:Name="SubTableEditor" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0"
+        Padding="0,16,0,0" IsEnabled="False">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="子表 Key" VerticalAlignment="Center"/>
+            <TextBox x:Name="SubKeyBox" AutomationProperties.Name="子表 Key" Grid.Column="1" Height="32" Margin="0,0,8,4"
+                     LostFocus="SubKeyBox_LostFocus"/>
+            <TextBlock Grid.Column="2" Text="输出文件" VerticalAlignment="Center"/>
+            <TextBox x:Name="SubOutputBox" AutomationProperties.Name="子表输出文件" Grid.Column="3" Height="32" Margin="0,0,0,4"/>
+
+            <TextBlock Grid.Row="1" Text="行起/止" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,8,4">
+                <TextBox x:Name="SubRowStartBox" AutomationProperties.Name="子表起始行" Width="64" Height="32"/>
+                <TextBlock Text=" - " VerticalAlignment="Center"/>
+                <TextBox x:Name="SubRowEndBox" AutomationProperties.Name="子表结束行" Width="64" Height="32"
+                         IsReadOnly="{Binding IsChecked, ElementName=AutoDetectRowsBox}"
+                         ToolTip="自动读取开启时显示上次扫描的结束行；关闭后可手动编辑"/>
+            </StackPanel>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="列起/止" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Margin="0,0,0,4">
+                <TextBox x:Name="SubColStartBox" AutomationProperties.Name="子表起始列" Width="50" Height="32"/>
+                <TextBlock Text=" - " VerticalAlignment="Center"/>
+                <TextBox x:Name="SubColEndBox" AutomationProperties.Name="子表结束列" Width="50" Height="32"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="2" Text="跳过列" VerticalAlignment="Center"/>
+            <TextBox x:Name="SubExcludeBox" AutomationProperties.Name="子表跳过列" Grid.Row="2" Grid.Column="1" Height="32" Margin="0,0,8,4"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="数组字段" VerticalAlignment="Center"/>
+            <TextBox x:Name="SubArrayBox" AutomationProperties.Name="子表数组字段" Grid.Row="2" Grid.Column="3" Height="32" Margin="0,0,0,4"/>
+
+            <TextBlock Grid.Row="3" Text="取整字段" VerticalAlignment="Center"/>
+            <TextBox x:Name="SubRoundBox" AutomationProperties.Name="子表取整字段" Grid.Row="3" Grid.Column="1" Height="32" Margin="0,0,8,4"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" Text="输出模式" VerticalAlignment="Center"/>
+            <ComboBox x:Name="SubNoKeyModeBox" AutomationProperties.Name="子表输出模式" Grid.Row="3" Grid.Column="3" Height="32" Margin="0,0,0,4">
+                <ComboBoxItem Content="数组 Array" Tag="Array"/>
+                <ComboBoxItem Content="序号对象 RowIndexObject" Tag="RowIndexObject"/>
+            </ComboBox>
+
+            <CheckBox x:Name="SubWrapBox" Grid.Row="4" Grid.Column="1" Content="使用子表 Key 包装" Margin="0,0,0,4"/>
+            <CheckBox x:Name="SubRemoveEmptyBox" Grid.Row="4" Grid.Column="3" Content="移除空字段" Margin="0,0,0,4"/>
+        </Grid>
+
+        <TextBlock Text="子表头映射" Margin="0,4,0,2"/>
+        <DataGrid x:Name="SubHeadersGrid" AutomationProperties.Name="子表头映射" AutoGenerateColumns="False" CanUserAddRows="True"
+                  CanUserDeleteRows="True" Height="80" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="列字母" Binding="{Binding Key, UpdateSourceTrigger=PropertyChanged}" Width="80"/>
+                <DataGridTextColumn Header="字段名" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="子表计算列" Margin="0,6,0,2"/>
+        <DataGrid x:Name="SubComputedGrid" AutomationProperties.Name="子表计算列" AutoGenerateColumns="False" CanUserAddRows="True"
+                  CanUserDeleteRows="True" Height="70" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="字段名" Binding="{Binding Key, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                <DataGridTextColumn Header="表达式" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Border></StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem x:Name="OtherSettingsTab" Header="其他配置">
+                                <StackPanel Margin="0,12,12,0">
+                                    <CheckBox x:Name="CopyToTargetBox" Content="复制 JSON 到 Cocos" AutomationProperties.Name="复制 JSON 到 Cocos"
+                                              ToolTip="默认关闭。仅影响一键更新并同步时的目标复制，不影响 JSON 生成。"/>
+                                    <TextBlock Text="默认关闭。开启后，「一键更新并同步」会将此工作表生成的 JSON 复制到 Cocos 目录。"
+                                               Style="{StaticResource HelpText}" TextWrapping="Wrap" Margin="0,12,0,0"/>
+                                    <TextBlock Text="包含此工作表所有子表的输出；关闭时仍正常生成 JSON，但不覆盖 Cocos 中的文件。"
+                                               Style="{StaticResource HelpText}" TextWrapping="Wrap" Margin="0,8,0,0"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="360" IsHitTestVisible="False">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers><DataTrigger Binding="{Binding IsEnabled, ElementName=RuleEditorPanel}" Value="False"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="选择一个工作表" FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="点击左侧 Sheet 名称，查看和编辑转换规则。勾选框决定该工作表是否参与转换。"
+                                   Style="{StaticResource HelpText}" TextAlignment="Center" Margin="0,12,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <GridSplitter Grid.Row="3" Height="8" HorizontalAlignment="Stretch" Background="Transparent" ShowsPreview="True"/>
+        <Border Grid.Row="4" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="6" Background="White">
+            <DockPanel>
+                <Grid DockPanel.Dock="Top" Margin="12,8">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                    <TextBlock Text="运行日志" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    <Button Grid.Column="1" Content="清空日志" Click="ClearLog_Click" Padding="10,3" MinHeight="28"/>
+                </Grid>
+                <TextBox x:Name="LogBox" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto" FontFamily="Consolas, Microsoft YaHei UI" FontSize="12"
+                         BorderThickness="0,1,0,0" BorderBrush="{StaticResource LineBrush}" Padding="12,8"
+                         VerticalContentAlignment="Top" AutomationProperties.Name="运行日志"/>
+            </DockPanel>
+        </Border>
+        <DockPanel Grid.Row="5" Margin="0,10,0,0">
+            <TextBlock x:Name="StatusText" Text="就绪" Foreground="{StaticResource MutedBrush}" AutomationProperties.LiveSetting="Polite"/>
+            <TextBlock Text="转换时自动保存当前规则" Style="{StaticResource HelpText}" HorizontalAlignment="Right"/>
+        </DockPanel>
+    </Grid>
+</Window>
