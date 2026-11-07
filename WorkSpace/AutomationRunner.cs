@@ -9,20 +9,31 @@ public sealed record SyncResult(int FileCount, string BackupDirectory, IReadOnly
 public static class AutomationRunner
 {
     public static async Task<SyncResult> RunAsync(ConversionConfig config, IProgress<string>? progress = null,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default) => await RunSelectedAsync(config, progress, cancellationToken);
+
+    public static async Task<SyncResult> RunSelectedAsync(ConversionConfig config, IProgress<string>? progress = null,
+        CancellationToken cancellationToken = default, IReadOnlyCollection<string>? selectedFiles = null, bool updateSvn = true)
     {
         cancellationToken.ThrowIfCancellationRequested();
         var svnDir = DirectoryPath(config.SvnDirectory, "SVN 目录", mustExist: true);
         var excelDir = DirectoryPath(config.ExcelDirectory, "Excel 目录", mustExist: true);
         var outputDir = DirectoryPath(config.OutputDirectory, "输出目录", mustExist: false);
         if (!Within(excelDir, svnDir)) throw new InvalidOperationException("Excel 目录必须位于 SVN 更新目录内。");
-        var svn = new SvnClient(SvnClient.FindExecutable(config.SvnExecutable));
-        progress?.Report("[1/3] 更新 SVN...");
-        await svn.UpdateAsync(svnDir, progress, cancellationToken);
+        if (updateSvn)
+        {
+            var svn = new SvnClient(SvnClient.FindExecutable(config.SvnExecutable));
+            progress?.Report("[1/3] 更新 SVN...");
+            await svn.UpdateAsync(svnDir, progress, cancellationToken);
+        }
         cancellationToken.ThrowIfCancellationRequested();
         progress?.Report("[2/3] 检查工作簿与输出规则...");
         var copyOutputs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var warnings = ValidateInputs(config, excelDir, copyOutputs);
+        if (selectedFiles != null)
+        {
+            copyOutputs.Clear();
+            foreach (var name in selectedFiles) copyOutputs.Add(name);
+        }
         foreach (var warning in warnings) progress?.Report("[警告] " + warning);
         string? targetDir = null;
         if (copyOutputs.Count > 0)
@@ -40,6 +51,9 @@ public static class AutomationRunner
         cancellationToken.ThrowIfCancellationRequested();
         var files = Directory.GetFiles(generated, "*.json").OrderBy(Path.GetFileName, StringComparer.OrdinalIgnoreCase).ToArray();
         if (files.Length == 0) throw new InvalidOperationException("本次未生成 JSON，请检查工作表勾选和解析范围；未覆盖任何文件。");
+        var generatedNames = files.Select(Path.GetFileName).ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var missing = copyOutputs.Where(name => !generatedNames.Contains(name)).ToArray();
+        if (missing.Length > 0) throw new InvalidOperationException("本次未生成勾选的 JSON，请重新扫描：" + string.Join(", ", missing));
         foreach (var file in files)
         {
             using var reader = new StreamReader(file);

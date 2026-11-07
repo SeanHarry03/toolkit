@@ -40,12 +40,18 @@
                         </Grid>
                         <TextBlock Text="工作表" FontSize="15" FontWeight="SemiBold" Margin="0,16,0,8"/>
                         <TextBlock Text="勾选参与生成，点击名称编辑规则" Style="{StaticResource HelpText}" Margin="0,0,0,8"/>
+                        <Grid Margin="0,0,0,8">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                            <Button x:Name="AddSheetButton" Content="添加工作表" Click="AddSheet_Click" Margin="0,0,4,4"/>
+                            <Button Grid.Column="1" Content="删除" Click="RemoveSheet_Click" Margin="4,0,0,4"/>
+                            <Button x:Name="SelectAllSheetsButton" Grid.Row="1" Content="全选" Click="SelectAllSheets_Click" Margin="0,4,4,0"/>
+                            <ToggleButton x:Name="SortCheckedSheetsButton" Grid.Row="1" Grid.Column="1" Content="已选置顶"
+                                          Checked="SortCheckedSheets_Changed" Unchecked="SortCheckedSheets_Changed"
+                                          Style="{StaticResource SheetSortToggle}"
+                                          Margin="4,4,0,0" ToolTip="开启后，已勾选工作表排在前面；同组按名称排序"/>
+                        </Grid>
                     </StackPanel>
-                    <Grid DockPanel.Dock="Bottom" Margin="0,12,0,0">
-                        <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-                        <Button Content="添加工作表" Click="AddSheet_Click" Margin="0,0,8,0"/>
-                        <Button Grid.Column="1" Content="删除" Click="RemoveSheet_Click"/>
-                    </Grid>
                     <Grid>
                         <ListBox x:Name="SheetList" SelectionChanged="SheetList_SelectionChanged" BorderThickness="0"
                                  Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"

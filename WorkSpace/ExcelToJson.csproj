@@ -16,6 +16,7 @@
 
     <ItemGroup>
         <PackageReference Include="ClosedXML" Version="0.104.2" />
+        <None Update="gametools-protocol.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
         <Content Include="codex\tools\svn\**\*" Link="tools\svn\%(RecursiveDir)%(Filename)%(Extension)"
                  CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     </ItemGroup>

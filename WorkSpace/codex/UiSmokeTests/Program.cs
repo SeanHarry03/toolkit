@@ -45,6 +45,30 @@ internal static class Program
             ((TextBox)window.FindName("SvnDirBox")).Text = root;
             ((TextBox)window.FindName("TargetDirBox")).Text = Path.Combine(root, "cocos");
             var list = (ListBox)window.FindName("SheetList");
+            var selectAll = window.FindName("SelectAllSheetsButton") as Button
+                ?? throw new Exception("Select All action must be visible in the sidebar");
+            var sortChecked = window.FindName("SortCheckedSheetsButton") as System.Windows.Controls.Primitives.ToggleButton
+                ?? throw new Exception("Checked-first action must be visible in the sidebar");
+            Check(selectAll.Content.ToString() == "全选", "Partly selected sheets should offer Select All");
+            list.SelectedItem = list.Items.Cast<SheetListItem>().Single(item => item.Name == "Data");
+            sortChecked.IsChecked = true;
+            Check(SheetNames(list) == "Data,Other", "Checked sheets should sort first, then by name");
+            ((SheetListItem)list.Items[0]).Enabled = false;
+            ((SheetListItem)list.Items[1]).Enabled = true;
+            Check(SheetNames(list) == "Other,Data", "Changing a checkbox should update checked-first order");
+            Check(((SheetListItem)list.SelectedItem).Name == "Data" &&
+                ((TextBlock)window.FindName("RuleTitle")).Text.Contains("Data"),
+                "Sorting must preserve the selected sheet and its editor");
+            selectAll.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            Check(list.Items.Cast<SheetListItem>().All(item => item.Enabled) && selectAll.Content.ToString() == "取消全选",
+                "Select All should check every sheet and switch its action");
+            selectAll.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            Check(list.Items.Cast<SheetListItem>().All(item => !item.Enabled) && selectAll.Content.ToString() == "全选",
+                "Second click should clear every sheet");
+            sortChecked.IsChecked = false;
+            Check(SheetNames(list) == "Data,Other", "Turning sorting off should restore name order");
+            ((SheetListItem)list.Items[0]).Enabled = true;
+            ((SheetListItem)list.Items[1]).Enabled = false;
             list.SelectedIndex = 0;
             var copyToggle = (CheckBox)window.FindName("CopyToTargetBox");
             Check(copyToggle.IsChecked == false, "Copy must default off");
@@ -125,6 +149,13 @@ internal static class Program
                 Check(status.TransformToAncestor(content).Transform(new Point(0, status.ActualHeight)).Y <= size.Height,
                     "Status must stay inside the window");
                 Check(((ListBox)window.FindName("SheetList")).ActualHeight > 180, "Persistent sheet navigation must have usable height");
+                if (page == "EditorPage")
+                {
+                    var addSheet = (Button)window.FindName("AddSheetButton");
+                    Check(addSheet.ActualWidth > 0 && addSheet.ActualHeight > 0 &&
+                        addSheet.TransformToAncestor(content).Transform(new Point(0, addSheet.ActualHeight)).Y < size.Height,
+                        "Add Sheet action must remain visible above the list");
+                }
                 if (page == "EditorPage" && size.Height == 780)
                     Check(((Grid)window.FindName("RuleWorkspace")).ActualHeight > 500, "Rules should use the full workspace height");
                 var bitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
@@ -149,6 +180,9 @@ internal static class Program
     }
 
     private static int? ReadEnd() => RulesStore.LoadOrCreate().FileRules["input.xlsx"].Sheets["Data"].RowEnd;
+
+    private static string SheetNames(ListBox list)
+        => string.Join(",", list.Items.Cast<SheetListItem>().Select(item => item.Name));
 
     private static void Invoke(MainWindow window, string name) => typeof(MainWindow)
         .GetMethod(name, BindingFlags.NonPublic | BindingFlags.Instance)!

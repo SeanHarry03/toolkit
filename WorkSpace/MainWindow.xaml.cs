@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using ClosedXML.Excel;
 using Microsoft.Win32;
 
@@ -16,6 +17,7 @@ public partial class MainWindow : Window
     private bool _isRunning;
     private CancellationTokenSource? _syncCancellation;
     private bool _loadingUi;
+    private bool _updatingSheetChecks;
     private string? _currentFile;
     private SheetRuleDto? _currentSheet;
     private string? _currentSubKey;
@@ -36,6 +38,7 @@ public partial class MainWindow : Window
         SubHeadersGrid.ItemsSource = _subHeaders;
         SubComputedGrid.ItemsSource = _subComputed;
         SheetList.ItemsSource = _sheetItems;
+        UpdateSheetSort();
         SubTableList.ItemsSource = _subKeys;
 
         _config = RulesStore.LoadOrCreate();
@@ -72,7 +75,10 @@ public partial class MainWindow : Window
         ClearRuleEditor();
 
         if (_currentFile == null)
+        {
+            UpdateSelectAllSheetsButton();
             return;
+        }
 
         if (!_config.FileRules.TryGetValue(_currentFile, out var fileRule))
         {
@@ -82,8 +88,69 @@ public partial class MainWindow : Window
 
         foreach (var (name, sheet) in fileRule.Sheets.OrderBy(kv => kv.Key, StringComparer.Ordinal))
         {
-            _sheetItems.Add(new SheetListItem(name, sheet));
+            AddSheetListItem(name, sheet);
         }
+        UpdateSelectAllSheetsButton();
+    }
+
+    private SheetListItem AddSheetListItem(string name, SheetRuleDto sheet)
+    {
+        var item = new SheetListItem(name, sheet);
+        item.PropertyChanged += SheetItem_PropertyChanged;
+        _sheetItems.Add(item);
+        return item;
+    }
+
+    private void SheetItem_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(SheetListItem.Enabled) || _updatingSheetChecks) return;
+        UpdateSelectAllSheetsButton();
+        if (SortCheckedSheetsButton.IsChecked == true) RefreshSheetOrder();
+    }
+
+    private void UpdateSelectAllSheetsButton()
+        => SelectAllSheetsButton.Content = _sheetItems.Count > 0 && _sheetItems.All(item => item.Enabled)
+            ? "取消全选" : "全选";
+
+    private void SelectAllSheets_Click(object sender, RoutedEventArgs e)
+    {
+        if (_sheetItems.Count == 0) return;
+        var enable = !_sheetItems.All(item => item.Enabled);
+        _updatingSheetChecks = true;
+        try
+        {
+            foreach (var item in _sheetItems) item.Enabled = enable;
+        }
+        finally { _updatingSheetChecks = false; }
+        UpdateSelectAllSheetsButton();
+        if (SortCheckedSheetsButton.IsChecked == true) RefreshSheetOrder();
+    }
+
+    private void SortCheckedSheets_Changed(object sender, RoutedEventArgs e) => UpdateSheetSort();
+
+    private void UpdateSheetSort()
+    {
+        if (SheetList == null || SortCheckedSheetsButton == null) return;
+        var view = CollectionViewSource.GetDefaultView(_sheetItems);
+        using (view.DeferRefresh())
+        {
+            view.SortDescriptions.Clear();
+            if (SortCheckedSheetsButton.IsChecked == true)
+                view.SortDescriptions.Add(new SortDescription(nameof(SheetListItem.Enabled), ListSortDirection.Descending));
+            view.SortDescriptions.Add(new SortDescription(nameof(SheetListItem.Name), ListSortDirection.Ascending));
+        }
+    }
+
+    private void RefreshSheetOrder()
+    {
+        var selected = SheetList.SelectedItem;
+        _loadingUi = true;
+        try
+        {
+            CollectionViewSource.GetDefaultView(_sheetItems).Refresh();
+            SheetList.SelectedItem = selected;
+        }
+        finally { _loadingUi = false; }
     }
 
     private void FileCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -351,8 +418,8 @@ public partial class MainWindow : Window
 
         var sheet = new SheetRuleDto { Enabled = true };
         fileRule.Sheets[name] = sheet;
-        var item = new SheetListItem(name, sheet);
-        _sheetItems.Add(item);
+        var item = AddSheetListItem(name, sheet);
+        UpdateSelectAllSheetsButton();
         SheetList.SelectedItem = item;
     }
 
@@ -362,6 +429,7 @@ public partial class MainWindow : Window
         CommitCurrentEditors();
         _config.FileRules[_currentFile].Sheets.Remove(item.Name);
         _sheetItems.Remove(item);
+        UpdateSelectAllSheetsButton();
         ClearRuleEditor();
     }
 
